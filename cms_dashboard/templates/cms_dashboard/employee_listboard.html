@@ -1,10 +1,10 @@
 {% extends "edc_dashboard/listboard.html" %}
 {% load admin_urls %}
 {% load edc_base_extras %}
-{% load potlako_dashboard_extras %}
-             
+{% load cms_dashboard_extras %}
+
 {% block listboard_panel %}
-    <a id="employee_add" title="add employee" class="btn btn-sm btn-default" role="button" 
+    <a id="employee_add" title="add employee" class="btn btn-sm btn-default" role="button"
         href="{{ employee_add_url }}?next={{ employee_listboard_url }}">
             <i class="fa fa-plus fa-sm"></i> Add Employee
     </a>
@@ -28,10 +28,10 @@
 {% block listboard_table_button_column %}
     <td style="white-space: nowrap;">
     <div class="btn-group">
-    {% eemployee_button result %}
+    {% edit_details_button result %}
     </div>
     </td>
-{% endblock listboard_table_button_column %}		
+{% endblock listboard_table_button_column %}
 
 
 {% block listboard_table_columns %}

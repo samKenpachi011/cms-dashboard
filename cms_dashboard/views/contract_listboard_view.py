@@ -16,8 +16,8 @@ class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
 
     listboard_template = 'contract_listboard_template'
     listboard_url = 'contract_listboard_url'
-    listboard_panel_style = 'info'
-    listboard_fa_icon = "fa-user-plus"
+    listboard_panel_style = 'success'
+    listboard_fa_icon = "far fa-user-circle"
 
     model = 'contract.contract'
     model_wrapper_cls = ContractModelWrapper
@@ -34,6 +34,7 @@ class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
+            contract_add_url=self.model_cls().get_absolute_url()
             )
         return context
 
