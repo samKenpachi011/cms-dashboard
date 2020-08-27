@@ -1,21 +1,47 @@
-"""cms_dashboard URL Configuration
+"""potlako_dashboard URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
+    https://docs.djangoproject.com/en/3.0/topics/http/urls/"""
+from edc_dashboard import UrlConfig
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+from .patterns import identifier
+from .views import (
+    ContractListBoardView, ConsultantListBoardView,
+    EmployeeListBoardView, PiListBoardView)
+
+app_name = 'cms_dashboard'
+
+contract_listboard_url_config = UrlConfig(
+    url_name='contract_listboard_url',
+    view_class=ContractListBoardView,
+    label='contract_listboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
+consultant_listboard_url_config = UrlConfig(
+    url_name='consultant_listboard_url',
+    view_class=ConsultantListBoardView,
+    label='consultant_listboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
+employee_dashboard_url_config = UrlConfig(
+    url_name='employee_listboard_url',
+    view_class=EmployeeListBoardView,
+    label='employee_listboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
+pi_dashboard_url_config = UrlConfig(
+    url_name='pi_listboard_url',
+    view_class=PiListBoardView,
+    label='pi_listboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
+urlpatterns = []
+urlpatterns += contract_listboard_url_config.listboard_urls
+urlpatterns += consultant_listboard_url_config.listboard_urls
+urlpatterns += employee_dashboard_url_config.listboard_urls
+urlpatterns += pi_dashboard_url_config.listboard_urls
+
