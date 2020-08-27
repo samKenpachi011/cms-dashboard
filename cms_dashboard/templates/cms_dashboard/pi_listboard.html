@@ -1,7 +1,7 @@
 {% extends "edc_dashboard/listboard.html" %}
 {% load admin_urls %}
 {% load edc_base_extras %}
-{% load potlako_dashboard_extras %}
+{% load cms_dashboard_extras %}
              
 {% block listboard_panel %}
     <a id="pi_add" title="add consultant" class="btn btn-sm btn-default" role="button" 
@@ -26,7 +26,7 @@
 {% block listboard_table_button_column %}
     <td style="white-space: nowrap;">
     <div class="btn-group">
-    {% pi_button result %}
+    {% edit_details_button result %}
     </div>
     </td>
 {% endblock listboard_table_button_column %}		
