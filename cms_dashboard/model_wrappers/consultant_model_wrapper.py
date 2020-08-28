@@ -3,19 +3,15 @@ from django.conf import settings
 from edc_model_wrapper import ModelWrapper
 
 from contract.models import Employee, Consultant, Pi
-from .contract_model_wrapper_mixin import ContractObj
+from .contract_model_wrapper_mixin import ContractModelWrapperMixin
 
 
-class ConsultantModelWrapper(ContractObj, ModelWrapper):
+class ConsultantModelWrapper(ContractModelWrapperMixin, ModelWrapper):
 
     model = 'contract.consultant'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
     next_url_name = settings.DASHBOARD_URL_NAMES.get('consultant_listboard_url')
-
-    @property
-    def contract_cls(self):
-        return django_apps.get_model('contract.contract')
 
     def owner(self):
         try:
