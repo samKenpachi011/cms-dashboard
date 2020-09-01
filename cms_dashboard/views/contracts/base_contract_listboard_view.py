@@ -10,6 +10,7 @@ from edc_navbar import NavbarViewMixin
 import re
 
 from ...model_wrappers import ContractModelWrapper
+from .filters import ListBoardFilters
 
 
 class BaseListBoardView(NavbarViewMixin, EdcBaseViewMixin,
@@ -21,6 +22,7 @@ class BaseListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa fa-user-circle"
 
+    listboard_view_filters = ListBoardFilters()
     model = 'contract.contract'
     model_wrapper_cls = ContractModelWrapper
     navbar_selected_item = 'contract'
