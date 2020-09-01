@@ -122,7 +122,11 @@ STATIC_URL = '/static/'
 # dashboards
 DASHBOARD_URL_NAMES = {
     'employee_listboard_url': 'cms_dashboard:employee_listboard_url',
+    'emp_contract_listboard_url': 'cms_dashboard:emp_contract_listboard_url',
+    'pi_contract_listboard_url': 'cms_dashboard:pi_contract_listboard_url',
     'pi_listboard_url': 'cms_dashboard:pi_listboard_url',
+    'consultant_contract_listboard_url': 'cms_dashboard:'
+                                         'consultant_contract_listboard_url',
     'consultant_listboard_url': 'cms_dashboard:consultant_listboard_url',
     'contract_listboard_url': 'cms_dashboard:contract_listboard_url',
 }
@@ -130,6 +134,8 @@ DASHBOARD_URL_NAMES = {
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'cms/base.html',
     'contract_listboard_template': 'cms_dashboard/contract_listboard.html',
+    'allcontracts_listboard_template': 'cms_dashboard/'
+                                       'allcontracts_listboard.html',
     'dashboard_base_template': 'cms/base.html',
     'employee_listboard_template': 'cms_dashboard/employee_listboard.html',
     'pi_listboard_template': 'cms_dashboard/pi_listboard.html',
