@@ -22,7 +22,7 @@ class PiListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     model = 'contract.pi'
     model_wrapper_cls = PiModelWrapper
     navbar_name = 'cms_dashboard'
-    # navbar_selected_item = 'pi'
+    navbar_selected_item = 'pi'
     ordering = '-modified'
     paginate_by = 10
     search_form_url = 'pi_listboard_url'
