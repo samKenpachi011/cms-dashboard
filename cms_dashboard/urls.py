@@ -6,9 +6,11 @@ from edc_dashboard import UrlConfig
 
 from .patterns import identifier
 from .views import (
-    ContractListBoardView, ConsultantListBoardView,
-    ConsultantContractListBoardView, EmployeeListBoardView,
-    EmpContractListBoardView, PiListBoardView, PiContractListBoardView)
+    ContractListBoardView, ConsultantListBoardView, EmployeeListBoardView,
+    PiListBoardView)
+from .views.contracts import (
+    ConsultantContractListBoardView, EmployeeContractListboardView,
+    PiContractListBoardView)
 
 app_name = 'cms_dashboard'
 
@@ -21,8 +23,8 @@ contract_listboard_url_config = UrlConfig(
 
 empcontract_listboard_url_config = UrlConfig(
     url_name='emp_contract_listboard_url',
-    view_class=EmpContractListBoardView,
-    label='allcontracts_listboard',
+    view_class=EmployeeContractListboardView,
+    label='employee_contracts_listboard',
     identifier_label='identifier',
     identifier_pattern=identifier)
 
@@ -36,7 +38,7 @@ consultant_listboard_url_config = UrlConfig(
 consultant_contract_listboard_url_config = UrlConfig(
     url_name='consultant_contract_listboard_url',
     view_class=ConsultantContractListBoardView,
-    label='allcontracts_listboard',
+    label='consultant_contracts_listboard',
     identifier_label='identifier',
     identifier_pattern=identifier)
 
@@ -57,7 +59,7 @@ pi_dashboard_url_config = UrlConfig(
 pi_contract_dashboard_url_config = UrlConfig(
     url_name='pi_contract_listboard_url',
     view_class=PiContractListBoardView,
-    label='allcontracts_listboard',
+    label='pi_contracts_listboard',
     identifier_label='identifier',
     identifier_pattern=identifier)
 
