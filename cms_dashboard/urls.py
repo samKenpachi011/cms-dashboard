@@ -7,7 +7,7 @@ from edc_dashboard import UrlConfig
 from .patterns import identifier
 from .views import (
     ContractListBoardView, ConsultantListBoardView,
-    EmployeeListBoardView, PiListBoardView)
+    EmployeeListBoardView, PiListBoardView, AllEmployeesListBoardView)
 
 app_name = 'cms_dashboard'
 
@@ -32,6 +32,13 @@ employee_dashboard_url_config = UrlConfig(
     identifier_label='identifier',
     identifier_pattern=identifier)
 
+allemployees_dashboard_url_config = UrlConfig(
+    url_name='allemployees_listboard_url',
+    view_class=AllEmployeesListBoardView,
+    label='allemployees_listboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
 pi_dashboard_url_config = UrlConfig(
     url_name='pi_listboard_url',
     view_class=PiListBoardView,
@@ -43,5 +50,6 @@ urlpatterns = []
 urlpatterns += contract_listboard_url_config.listboard_urls
 urlpatterns += consultant_listboard_url_config.listboard_urls
 urlpatterns += employee_dashboard_url_config.listboard_urls
+urlpatterns += allemployees_dashboard_url_config.listboard_urls
 urlpatterns += pi_dashboard_url_config.listboard_urls
 
