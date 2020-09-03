@@ -35,8 +35,7 @@ class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
-            first_name=self.model_wrapper_cls.first_name,
-            last_name=self.model_wrapper_cls.last_name,
+            personnel_name=self.model_wrapper_cls.personnel_name,
             contract_add_url=self.model_cls().get_absolute_url()
             )
         return context
