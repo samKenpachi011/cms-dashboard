@@ -1,5 +1,4 @@
 import re
-# from django.apps import apps as django_apps
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -34,6 +33,8 @@ class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
+            first_name=self.model_wrapper_cls.first_name,
+            last_name=self.model_wrapper_cls.last_name,
             contract_add_url=self.model_cls().get_absolute_url()
             )
         return context
