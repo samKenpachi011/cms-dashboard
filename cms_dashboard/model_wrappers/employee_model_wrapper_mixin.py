@@ -1,5 +1,4 @@
 from django.apps import apps as django_apps
-from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 
 
@@ -8,7 +7,6 @@ class EmployeeModelWrapperMixin:
     model = 'contract.employee'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
-    next_url_name = settings.DASHBOARD_URL_NAMES.get('employee_listboard_url')
 
     @property
     def emp_identifier(self):
@@ -17,18 +15,16 @@ class EmployeeModelWrapperMixin:
         return None
 
     @property
-    def first_name(self):
+    def emp_first_name(self):
         if self.employee_model_obj:
             return self.employee_model_obj.first_name
         return None
 
     @property
-    def last_name(self):
+    def emp_last_name(self):
         if self.employee_model_obj:
             return self.employee_model_obj.last_name
         return None
-
-    # if self.identifier__startswith = 'A';
 
     @property
     def employee_model_obj(self):
