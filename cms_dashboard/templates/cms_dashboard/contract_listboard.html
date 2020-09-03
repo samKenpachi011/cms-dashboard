@@ -6,7 +6,7 @@
     <!-- begin results header -->
     <th>#</th>
     <th></th>
-    <th>Contract Identifier</th>
+    <th>Personnel Identifier</th>
     <th>Owner Name</th>
     <th>Duration</th>
     <th>Start Date</th>
@@ -30,7 +30,7 @@
 {% block listboard_table_columns %}
 
     <td>{{ result.identifier }} </td>
-    <td>{{ result.owner }} </td>
+    <td>{{ result.first_name }} {{ result.last_name }}</td>
     <td nowrap>{{ result.duration }}</td>
     <td nowrap>{{ result.start_date }}</td>
     <td nowrap>{{ result.end_date }}</td>
