@@ -2,12 +2,14 @@
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/"""
+from django.urls import path
+
 from edc_dashboard import UrlConfig
 
 from .patterns import identifier
 from .views import (
     ContractListBoardView, ConsultantListBoardView, EmployeeListBoardView,
-    PiListBoardView)
+    PiListBoardView, DashboardView)
 from .views.contracts import (
     ConsultantContractListBoardView, EmployeeContractListboardView,
     PiContractListBoardView)
@@ -63,7 +65,10 @@ pi_contract_dashboard_url_config = UrlConfig(
     identifier_label='identifier',
     identifier_pattern=identifier)
 
-urlpatterns = []
+urlpatterns = [
+    path('', DashboardView.as_view(), name='dashboard_url'),
+]
+
 urlpatterns += contract_listboard_url_config.listboard_urls
 urlpatterns += consultant_contract_listboard_url_config.listboard_urls
 urlpatterns += consultant_listboard_url_config.listboard_urls

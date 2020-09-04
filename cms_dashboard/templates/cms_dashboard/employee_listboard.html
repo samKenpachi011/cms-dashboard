@@ -32,6 +32,10 @@
      <a id="btn-contract" class="btn btn-primary btn-sm" role="button"
      title="add_contract" href="{{result.contract_model_obj.href }}">
      <i class="far fa-user-circle fa-sm"></i> Contract  <i class="fa fa-share"></i></a>
+     
+     <a id="btn-dashboard" class="btn btn-success btn-sm" role="button"
+     title="add_dashboard" href="{% url dashboard_url %}">
+     <i class="far fa-user-circle fa-sm"></i> Dashboard  <i class="fa fa-share"></i></a>
     </div>
     </td>
 {% endblock listboard_table_button_column %}
