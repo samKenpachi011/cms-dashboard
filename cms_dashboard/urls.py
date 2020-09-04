@@ -66,7 +66,7 @@ pi_contract_dashboard_url_config = UrlConfig(
     identifier_pattern=identifier)
 
 urlpatterns = [
-    path('', DashboardView.as_view(), name='dashboard_url'),
+    path('dashboard', DashboardView.as_view(), name='dashboard_url'),
 ]
 
 urlpatterns += contract_listboard_url_config.listboard_urls

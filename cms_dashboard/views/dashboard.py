@@ -2,11 +2,13 @@ from django.views.generic.base import TemplateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from edc_base.view_mixins import EdcBaseViewMixin
+from edc_navbar import NavbarViewMixin
 
 
-class DashboardView(EdcBaseViewMixin, TemplateView):
+class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
     
     template_name = 'cms_dashboard/dashboard.html'
+    navbar_name = 'cms_dashboard'
 
 
     @property
