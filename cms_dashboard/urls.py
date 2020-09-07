@@ -30,6 +30,13 @@ empcontract_listboard_url_config = UrlConfig(
     identifier_label='identifier',
     identifier_pattern=identifier)
 
+consultant_dashboard_url_config = UrlConfig(
+    url_name='consultant_dashboard_url',
+    view_class=ConsultantDashboardView,
+    label='consultant_dashboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
 consultant_listboard_url_config = UrlConfig(
     url_name='consultant_listboard_url',
     view_class=ConsultantListBoardView,
@@ -45,16 +52,30 @@ consultant_contract_listboard_url_config = UrlConfig(
     identifier_pattern=identifier)
 
 employee_dashboard_url_config = UrlConfig(
+    url_name='employee_dashboard_url',
+    view_class=DashboardView,
+    label='employee_dashboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
+employee_listboard_url_config = UrlConfig(
     url_name='employee_listboard_url',
     view_class=EmployeeListBoardView,
     label='employee_listboard',
     identifier_label='identifier',
     identifier_pattern=identifier)
 
-pi_dashboard_url_config = UrlConfig(
+pi_listboard_url_config = UrlConfig(
     url_name='pi_listboard_url',
     view_class=PiListBoardView,
     label='pi_listboard',
+    identifier_label='identifier',
+    identifier_pattern=identifier)
+
+pi_dashboard_url_config = UrlConfig(
+    url_name='pi_dashboard_url',
+    view_class=PiDashboardView,
+    label='pi_dashboard',
     identifier_label='identifier',
     identifier_pattern=identifier)
 
@@ -66,15 +87,16 @@ pi_contract_dashboard_url_config = UrlConfig(
     identifier_pattern=identifier)
 
 urlpatterns = [
-    path('dashboard/<identifier>', DashboardView.as_view(), name='dashboard_url'),
-    path('pi/<identifier>', PiDashboardView.as_view(), name='pi_dashboard_url'),
-    path('consultant/<identifier>', ConsultantDashboardView.as_view(), name='consultant_dashboard_url'),
+    # path('dashboard/<identifier>', DashboardView.as_view(), name='dashboard_url'),
 ]
 
 urlpatterns += contract_listboard_url_config.listboard_urls
+urlpatterns += consultant_dashboard_url_config.dashboard_urls
 urlpatterns += consultant_contract_listboard_url_config.listboard_urls
 urlpatterns += consultant_listboard_url_config.listboard_urls
 urlpatterns += employee_dashboard_url_config.listboard_urls
+urlpatterns += employee_listboard_url_config.listboard_urls
 urlpatterns += empcontract_listboard_url_config.listboard_urls
-urlpatterns += pi_dashboard_url_config.listboard_urls
+urlpatterns += pi_dashboard_url_config.dashboard_urls
+urlpatterns += pi_listboard_url_config.listboard_urls
 urlpatterns += pi_contract_dashboard_url_config.listboard_urls

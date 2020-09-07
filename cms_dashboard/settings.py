@@ -121,13 +121,16 @@ STATIC_URL = '/static/'
 
 # dashboards
 DASHBOARD_URL_NAMES = {
+    'employee_dashboard_url': 'cms_dashboard:employee_dashboard_url',
     'employee_listboard_url': 'cms_dashboard:employee_listboard_url',
     'emp_contract_listboard_url': 'cms_dashboard:emp_contract_listboard_url',
     'pi_contract_listboard_url': 'cms_dashboard:pi_contract_listboard_url',
     'pi_listboard_url': 'cms_dashboard:pi_listboard_url',
+    'pi_dashboard_url': 'cms_dashboard:pi_dashboard_url',
     'consultant_contract_listboard_url': 'cms_dashboard:'
                                          'consultant_contract_listboard_url',
     'consultant_listboard_url': 'cms_dashboard:consultant_listboard_url',
+    'consultant_dashboard_url': 'cms_dashboard:consultant_dashboard_url',
     'contract_listboard_url': 'cms_dashboard:contract_listboard_url',
 }
 
@@ -137,7 +140,10 @@ DASHBOARD_BASE_TEMPLATES = {
     'allcontracts_listboard_template': 'cms_dashboard/contract/'
                                        'allcontracts_listboard.html',
     'dashboard_base_template': 'cms/base.html',
+    'employee_dashboard_template': 'cms_dashboard/employee/employee_dashboard.html',
     'employee_listboard_template': 'cms_dashboard/employee/employee_listboard.html',
+    'pi_dashboard_template': 'cms_dashboard/pi/pi_dashboard.html',
     'pi_listboard_template': 'cms_dashboard/pi/pi_listboard.html',
     'consultant_listboard_template': 'cms_dashboard/consultant/consultant_listboard.html',
+    'consultant_dashboard_template': 'cms_dashboard/consultant/consultant_dashboard.html',
 }
