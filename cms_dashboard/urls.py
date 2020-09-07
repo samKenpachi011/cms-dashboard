@@ -9,7 +9,7 @@ from edc_dashboard import UrlConfig
 from .patterns import identifier
 from .views import (
     ContractListBoardView, ConsultantListBoardView, EmployeeListBoardView,
-    PiListBoardView, DashboardView)
+    PiListBoardView, DashboardView, PiDashboardView, ConsultantDashboardView)
 from .views.contract import (
     ConsultantContractListBoardView, EmployeeContractListboardView,
     PiContractListBoardView)
@@ -67,6 +67,8 @@ pi_contract_dashboard_url_config = UrlConfig(
 
 urlpatterns = [
     path('dashboard/<identifier>', DashboardView.as_view(), name='dashboard_url'),
+    path('pi/<identifier>', PiDashboardView.as_view(), name='pi_dashboard_url'),
+    path('consultant/<identifier>', ConsultantDashboardView.as_view(), name='consultant_dashboard_url'),
 ]
 
 urlpatterns += contract_listboard_url_config.listboard_urls

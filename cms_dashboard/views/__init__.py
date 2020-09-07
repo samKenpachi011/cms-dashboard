@@ -1,5 +1,7 @@
 from .consultant.consultant_listboard_view import ConsultantListBoardView
+from .consultant.consultant_dashboard import ConsultantDashboardView
 from .contract.contract_listboard_view import ContractListBoardView
 from .employee.employee_dashboard import DashboardView
 from .employee.employee_listboard_view import EmployeeListBoardView
+from .pi.pi_dashboard import PiDashboardView
 from .pi.pi_listboard_view import PiListBoardView
