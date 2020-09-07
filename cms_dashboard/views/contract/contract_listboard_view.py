@@ -7,7 +7,7 @@ from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMi
 from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
-from ..filters import ListBoardFilters
+from ..contract_filters import ListBoardFilters
 from ...model_wrappers import ContractModelWrapper
 
 
