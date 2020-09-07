@@ -138,6 +138,6 @@ DASHBOARD_BASE_TEMPLATES = {
                                        'allcontracts_listboard.html',
     'dashboard_base_template': 'cms/base.html',
     'employee_listboard_template': 'cms_dashboard/employee/employee_listboard.html',
-    'pi_listboard_template': 'cms_dashboard/pi_listboard.html',
+    'pi_listboard_template': 'cms_dashboard/pi/pi_listboard.html',
     'consultant_listboard_template': 'cms_dashboard/consultant/consultant_listboard.html',
 }

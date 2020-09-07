@@ -12,7 +12,7 @@ from ...model_wrappers import ContractModelWrapper
 
 class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
     
-    template_name = 'cms_dashboard/dashboard.html'
+    template_name = 'cms_dashboard/employee/dashboard.html'
     navbar_name = 'cms_dashboard'
 
 
