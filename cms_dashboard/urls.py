@@ -10,7 +10,7 @@ from .patterns import identifier
 from .views import (
     ContractListBoardView, ConsultantListBoardView, EmployeeListBoardView,
     PiListBoardView, DashboardView)
-from .views.contracts import (
+from .views.contract import (
     ConsultantContractListBoardView, EmployeeContractListboardView,
     PiContractListBoardView)
 
@@ -66,7 +66,7 @@ pi_contract_dashboard_url_config = UrlConfig(
     identifier_pattern=identifier)
 
 urlpatterns = [
-    path('dashboard', DashboardView.as_view(), name='dashboard_url'),
+    path('dashboard/<identifier>', DashboardView.as_view(), name='dashboard_url'),
 ]
 
 urlpatterns += contract_listboard_url_config.listboard_urls

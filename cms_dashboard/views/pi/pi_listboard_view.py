@@ -8,24 +8,24 @@ from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMi
 from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
-from ..model_wrappers import ConsultantModelWrapper
+from ...model_wrappers import PiModelWrapper
 
 
-class ConsultantListBoardView(NavbarViewMixin, EdcBaseViewMixin,
+class PiListBoardView(NavbarViewMixin, EdcBaseViewMixin,
                     ListboardFilterViewMixin, SearchFormViewMixin, ListboardView):
 
-    listboard_template = 'consultant_listboard_template'
-    listboard_url = 'consultant_listboard_url'
+    listboard_template = 'pi_listboard_template'
+    listboard_url = 'pi_listboard_url'
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa-user-plus"
 
-    model = 'contract.consultant'
-    model_wrapper_cls = ConsultantModelWrapper
+    model = 'contract.pi'
+    model_wrapper_cls = PiModelWrapper
     navbar_name = 'cms_dashboard'
-    navbar_selected_item = 'consultant'
+    navbar_selected_item = 'pi'
     ordering = '-modified'
     paginate_by = 10
-    search_form_url = 'consultant_listboard_url'
+    search_form_url = 'pi_listboard_url'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -34,7 +34,7 @@ class ConsultantListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
-            consultant_add_url=self.model_cls().get_absolute_url()
+            pi_add_url=self.model_cls().get_absolute_url()
             )
         return context
 

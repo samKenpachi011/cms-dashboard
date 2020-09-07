@@ -133,11 +133,11 @@ DASHBOARD_URL_NAMES = {
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'cms/base.html',
-    'contract_listboard_template': 'cms_dashboard/contract_listboard.html',
-    'allcontracts_listboard_template': 'cms_dashboard/'
+    'contract_listboard_template': 'cms_dashboard/contract/contract_listboard.html',
+    'allcontracts_listboard_template': 'cms_dashboard/contract/'
                                        'allcontracts_listboard.html',
     'dashboard_base_template': 'cms/base.html',
-    'employee_listboard_template': 'cms_dashboard/employee_listboard.html',
+    'employee_listboard_template': 'cms_dashboard/employee/employee_listboard.html',
     'pi_listboard_template': 'cms_dashboard/pi_listboard.html',
-    'consultant_listboard_template': 'cms_dashboard/consultant_listboard.html',
+    'consultant_listboard_template': 'cms_dashboard/consultant/consultant_listboard.html',
 }

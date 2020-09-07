@@ -10,7 +10,7 @@ from edc_navbar import NavbarViewMixin
 import re
 
 from ...model_wrappers import ContractModelWrapper
-from .filters import ListBoardFilters
+from ..filters import ListBoardFilters
 
 
 class BaseListBoardView(NavbarViewMixin, EdcBaseViewMixin,

@@ -1,4 +1,5 @@
 import re
+# from django.apps import apps as django_apps
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -7,26 +8,24 @@ from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMi
 from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
-from .contracts.filters import ListBoardFilters
-from ..model_wrappers import ContractModelWrapper
+from ...model_wrappers import EmployeeModelWrapper
 
 
-class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
+class EmployeeListBoardView(NavbarViewMixin, EdcBaseViewMixin,
                     ListboardFilterViewMixin, SearchFormViewMixin, ListboardView):
 
-    listboard_template = 'contract_listboard_template'
-    listboard_url = 'contract_listboard_url'
-    listboard_panel_style = 'success'
-    listboard_fa_icon = "far fa-user-circle"
+    listboard_template = 'employee_listboard_template'
+    listboard_url = 'employee_listboard_url'
+    listboard_panel_style = 'info'
+    listboard_fa_icon = "fa-user-plus"
 
-    listboard_view_filters = ListBoardFilters()
-    model = 'contract.contract'
-    model_wrapper_cls = ContractModelWrapper
+    model = 'contract.employee'
+    model_wrapper_cls = EmployeeModelWrapper
     navbar_name = 'cms_dashboard'
-    navbar_selected_item = 'contract'
+    navbar_selected_item = 'employee'
     ordering = '-modified'
     paginate_by = 10
-    search_form_url = 'contract_listboard_url'
+    search_form_url = 'employee_listboard_url'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -35,9 +34,7 @@ class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
-            personnel_name=self.model_wrapper_cls.personnel_name,
-            contract_add_url=self.model_cls().get_absolute_url()
-            )
+            employee_add_url=self.model_cls().get_absolute_url())
         return context
 
     def get_queryset_filter_options(self, request, *args, **kwargs):

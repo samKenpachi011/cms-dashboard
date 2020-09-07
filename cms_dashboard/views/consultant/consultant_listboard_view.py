@@ -8,24 +8,24 @@ from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMi
 from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
-from ..model_wrappers import EmployeeModelWrapper
+from ...model_wrappers import ConsultantModelWrapper
 
 
-class EmployeeListBoardView(NavbarViewMixin, EdcBaseViewMixin,
+class ConsultantListBoardView(NavbarViewMixin, EdcBaseViewMixin,
                     ListboardFilterViewMixin, SearchFormViewMixin, ListboardView):
 
-    listboard_template = 'employee_listboard_template'
-    listboard_url = 'employee_listboard_url'
+    listboard_template = 'consultant_listboard_template'
+    listboard_url = 'consultant_listboard_url'
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa-user-plus"
 
-    model = 'contract.employee'
-    model_wrapper_cls = EmployeeModelWrapper
+    model = 'contract.consultant'
+    model_wrapper_cls = ConsultantModelWrapper
     navbar_name = 'cms_dashboard'
-    navbar_selected_item = 'employee'
+    navbar_selected_item = 'consultant'
     ordering = '-modified'
     paginate_by = 10
-    search_form_url = 'employee_listboard_url'
+    search_form_url = 'consultant_listboard_url'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -34,7 +34,8 @@ class EmployeeListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(
-            employee_add_url=self.model_cls().get_absolute_url())
+            consultant_add_url=self.model_cls().get_absolute_url()
+            )
         return context
 
     def get_queryset_filter_options(self, request, *args, **kwargs):
