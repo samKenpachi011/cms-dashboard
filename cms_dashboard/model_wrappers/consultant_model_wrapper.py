@@ -1,3 +1,4 @@
+from django.conf import settings
 from edc_model_wrapper import ModelWrapper
 
 from contract.models import Employee, Consultant, Pi
@@ -9,7 +10,7 @@ class ConsultantModelWrapper(ContractModelWrapperMixin, ModelWrapper):
     model = 'contract.consultant'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
-    next_url_name = 'cms_dashboard:dashboard_url'
+    next_url_name = settings.DASHBOARD_URL_NAMES.get('consultant_listboard_url')
 
     def owner(self):
         try:
