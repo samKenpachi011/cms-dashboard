@@ -11,10 +11,9 @@ from ...model_wrappers import ContractModelWrapper
 
 
 class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
-    
+
     template_name = 'cms_dashboard/employee/employee_dashboard.html'
     navbar_name = 'cms_dashboard'
-
 
     def contracts(self, identifier=None):
         """Returns a Queryset of all contracts for this subject.
@@ -22,7 +21,7 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
         wrapped_objs = []
         for contract in Contract.objects.filter(identifier=identifier):
             wrapped_objs.append(ContractModelWrapper(contract))
-            
+
         return wrapped_objs
 
     def contract(self, identifier=None):
@@ -50,7 +49,6 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
             contracts=self.contracts(identifier=identifier),
             contract=self.contract(identifier=identifier))
         return context
-
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

@@ -12,7 +12,8 @@ from ...model_wrappers import ConsultantModelWrapper
 
 
 class ConsultantListBoardView(NavbarViewMixin, EdcBaseViewMixin,
-                    ListboardFilterViewMixin, SearchFormViewMixin, ListboardView):
+                              ListboardFilterViewMixin, SearchFormViewMixin,
+                              ListboardView):
 
     listboard_template = 'consultant_listboard_template'
     listboard_url = 'consultant_listboard_url'

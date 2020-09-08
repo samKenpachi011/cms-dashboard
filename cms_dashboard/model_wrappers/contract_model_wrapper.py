@@ -6,7 +6,9 @@ from .consultant_model_wrapper_mixin import ConsultantModelWrapperMixin
 from .pi_model_wrapper_mixin import PiModelWrapperMixin
 
 
-class ContractModelWrapper(EmployeeModelWrapperMixin, ConsultantModelWrapperMixin, PiModelWrapperMixin, ModelWrapper):
+class ContractModelWrapper(
+        EmployeeModelWrapperMixin, ConsultantModelWrapperMixin,
+        PiModelWrapperMixin, ModelWrapper):
 
     model = 'contract.contract'
     querystring_attrs = ['identifier']

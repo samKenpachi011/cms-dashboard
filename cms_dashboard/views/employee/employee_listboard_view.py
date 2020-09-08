@@ -11,8 +11,9 @@ from edc_navbar import NavbarViewMixin
 from ...model_wrappers import EmployeeModelWrapper
 
 
-class EmployeeListBoardView(NavbarViewMixin, EdcBaseViewMixin,
-                    ListboardFilterViewMixin, SearchFormViewMixin, ListboardView):
+class EmployeeListBoardView(
+        NavbarViewMixin, EdcBaseViewMixin, ListboardFilterViewMixin,
+        SearchFormViewMixin, ListboardView):
 
     listboard_template = 'employee_listboard_template'
     listboard_url = 'employee_listboard_url'
