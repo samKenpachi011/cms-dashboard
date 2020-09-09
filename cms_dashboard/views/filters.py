@@ -1,3 +1,4 @@
+from edc_base.utils import get_utcnow
 from edc_dashboard.listboard_filter import ListboardFilter, \
     ListboardViewFilters
 
@@ -29,3 +30,8 @@ class ListBoardFilters(ListboardViewFilters):
         label='In Progress',
         position=11,
         lookup={'contract_ended': False})
+
+    due_date = ListboardFilter(
+        label='3-Months Due',
+        position=12,
+        lookup={'due_date__lt': get_utcnow().date()})
