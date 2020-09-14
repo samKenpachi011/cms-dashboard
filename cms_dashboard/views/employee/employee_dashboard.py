@@ -47,7 +47,8 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
             identifier=identifier,
             employee=self.employee(identifier=identifier),
             contracts=self.contracts(identifier=identifier),
-            contract=self.contract(identifier=identifier))
+            contract=self.contract(identifier=identifier),
+            employee_contracts=Contract.objects.filter(identifier=identifier).count())
         return context
 
     @method_decorator(login_required)

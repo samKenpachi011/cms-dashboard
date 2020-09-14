@@ -17,8 +17,10 @@
 {% block main %}
 
 <div class="container">
-  <h3>{{employee.first_name}} {{employee.middle_name}} {{employee.last_name}}</h3>
-  
+	<div class="well">
+		<b>{{employee.first_name}} {{employee.middle_name}} {{employee.last_name}} | {{employee.employee_code}} | 
+		Total contracts: <span class="float-right badge badge-light round">{{employee_contracts}}</span></b>
+	</div>
   <div class="row">
   	<div class="col-md-9">
 
@@ -79,6 +81,10 @@
 	      	<b>Cell:</b> {{employee.cell}}</br>
 	      	<b>Identifier:</b> {{employee.identifier}}</br>
 	      	<b>Employee code:</b> {{employee.employee_code}}
+	      	<hr >
+	      	<b>Dept: </b> {{employee.department.dept_name}}</br>
+	      	<b>HOD: </b> {{employee.department.hod}}</br>
+	      	<b>Supervisor: </b> {{employee.supervisor.first_name}} {{employee.supervisor.last_name}}
 	      </div>
 	    </div>
 
