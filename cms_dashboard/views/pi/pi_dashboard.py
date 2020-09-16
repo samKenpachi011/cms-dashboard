@@ -46,7 +46,8 @@ class PiDashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
            identifier=identifier,
            pi=self.pi(identifier=identifier),
            contracts=self.contracts(identifier=identifier),
-           contract=self.contract(identifier=identifier))
+           contract=self.contract(identifier=identifier),
+           pi_contracts=Contract.objects.filter(identifier=identifier).count())
         return context
 
     @method_decorator(login_required)

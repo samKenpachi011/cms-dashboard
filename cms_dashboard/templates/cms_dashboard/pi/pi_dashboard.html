@@ -17,7 +17,10 @@
 {% block main %}
 
 <div class="container">
-  <h3>{{pi.first_name}} {{pi.middle_name}} {{pi.last_name}}</h3>
+  <div class="well">
+		<b>{{pi.first_name}} {{pi.middle_name}} {{pi.last_name}} |
+		Total contracts: <span class="float-right badge badge-light round">{{pi_contracts}}</span></b>
+  </div>
   
   <div class="row">
   	<div class="col-md-9">
@@ -91,6 +94,8 @@
 	      	<b>Email:</b> {{pi.email}}</br>
 	      	<b>Cell:</b> {{pi.cell}}</br>
 	      	<b>Identifier:</b> {{pi.identifier}}</br>
+			<hr>
+	      	<b>Supervisor: </b> {{pi.supervisor.first_name}} {{pi.supervisor.last_name}}
 	      </div>
 	    </div>
 

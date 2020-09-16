@@ -17,8 +17,11 @@
 {% block main %}
 
 <div class="container">
-  <h3>{{consultant.first_name}} {{consultant.middle_name}} {{consultant.last_name}}</h3>
-  
+	<div class="well">
+		<b>{{consultant.first_name}} {{consultant.middle_name}} {{consultant.last_name}} |
+		Total contracts: <span class="float-right badge badge-light round">{{consultant_contracts}}</span></b>
+	</div>
+
   <div class="row">
   	<div class="col-md-9">
 
@@ -91,6 +94,8 @@
 	      	<b>Email:</b> {{consultant.email}}</br>
 	      	<b>Cell:</b> {{consultant.cell}}</br>
 	      	<b>Identifier:</b> {{consultant.identifier}}</br>
+			<hr>
+	      	<b>Supervisor: </b> {{consultant.supervisor.first_name}} {{consultant.supervisor.last_name}}
 	      </div>
 	    </div>
 
