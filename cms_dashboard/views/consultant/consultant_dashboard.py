@@ -6,7 +6,7 @@ from django.views.generic.base import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
 
-from contract.models import Contract, Consultant
+from bhp_personnel.models import Contract, Consultant
 from ...model_wrappers import ContractModelWrapper
 
 

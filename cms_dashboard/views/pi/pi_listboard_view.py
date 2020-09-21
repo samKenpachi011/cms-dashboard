@@ -11,15 +11,16 @@ from edc_navbar import NavbarViewMixin
 from ...model_wrappers import PiModelWrapper
 
 
-class PiListBoardView(NavbarViewMixin, EdcBaseViewMixin,
-                    ListboardFilterViewMixin, SearchFormViewMixin, ListboardView):
+class PiListBoardView(
+        NavbarViewMixin, EdcBaseViewMixin, ListboardFilterViewMixin,
+        SearchFormViewMixin, ListboardView):
 
     listboard_template = 'pi_listboard_template'
     listboard_url = 'pi_listboard_url'
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa-user-plus"
 
-    model = 'contract.pi'
+    model = 'bhp_personnel.pi'
     model_wrapper_cls = PiModelWrapper
     navbar_name = 'cms_dashboard'
     navbar_selected_item = 'pi'

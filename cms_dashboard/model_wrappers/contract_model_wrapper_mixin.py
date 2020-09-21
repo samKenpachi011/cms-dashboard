@@ -1,5 +1,5 @@
 from .contract_model_wrapper import ContractModelWrapper
-from contract.models import Contract
+from bhp_personnel.models import Contract
 
 
 class ContractModelWrapperMixin:

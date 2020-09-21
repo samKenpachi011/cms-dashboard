@@ -20,7 +20,7 @@ class EmployeeListBoardView(
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa-user-plus"
 
-    model = 'contract.employee'
+    model = 'bhp_personnel.employee'
     model_wrapper_cls = EmployeeModelWrapper
     navbar_name = 'cms_dashboard'
     navbar_selected_item = 'employee'
