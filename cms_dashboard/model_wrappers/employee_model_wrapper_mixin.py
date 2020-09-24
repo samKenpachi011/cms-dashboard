@@ -37,7 +37,7 @@ class EmployeeModelWrapperMixin:
 
     @property
     def employee_cls(self):
-        return django_apps.get_model('contract.employee')
+        return django_apps.get_model('bhp_personnel.employee')
 
     @property
     def create_employee_options(self):

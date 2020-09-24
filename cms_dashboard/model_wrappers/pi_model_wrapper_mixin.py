@@ -37,7 +37,7 @@ class PiModelWrapperMixin:
 
     @property
     def pi_cls(self):
-        return django_apps.get_model('contract.pi')
+        return django_apps.get_model('bhp_personnel.pi')
 
     @property
     def create_pi_options(self):
