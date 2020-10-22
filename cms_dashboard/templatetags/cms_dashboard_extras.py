@@ -11,5 +11,3 @@ def edit_details_button(model_wrapper):
         identifier=model_wrapper.object.identifier,
         href=model_wrapper.href,
         title=' '.join(title))
-
-

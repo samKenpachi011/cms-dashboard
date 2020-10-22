@@ -3,7 +3,7 @@ from edc_dashboard.listboard_filter import ListboardFilter, \
     ListboardViewFilters
 
 
-class ListBoardFilters(ListboardViewFilters):
+class ContractListBoardFilters(ListboardViewFilters):
 
     all = ListboardFilter(
         name='all',

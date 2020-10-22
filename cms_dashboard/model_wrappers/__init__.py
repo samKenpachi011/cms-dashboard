@@ -1,5 +1,6 @@
 from .consultant_model_wrapper import ConsultantModelWrapper
 from .contract_model_wrapper import ContractModelWrapper
 from.contract_model_wrapper_mixin import ContractModelWrapperMixin
+from .department_model_wrapper_mixin import DepartmentModelWrapperMixin
 from .employee_model_wrapper import EmployeeModelWrapper
 from .pi_model_wrapper import PiModelWrapper
