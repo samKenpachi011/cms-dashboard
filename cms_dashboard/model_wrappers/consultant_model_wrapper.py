@@ -1,13 +1,13 @@
 from django.conf import settings
 from edc_model_wrapper import ModelWrapper
 
-from bhp_personnel.models import Employee, Consultant, Pi
+from contract.models import Employee, Consultant, Pi
 from .contract_model_wrapper_mixin import ContractModelWrapperMixin
 
 
 class ConsultantModelWrapper(ContractModelWrapperMixin, ModelWrapper):
 
-    model = 'bhp_personnel.consultant'
+    model = 'contract.consultant'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
     next_url_name = settings.DASHBOARD_URL_NAMES.get('consultant_listboard_url')

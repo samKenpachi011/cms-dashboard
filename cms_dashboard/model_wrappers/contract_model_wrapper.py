@@ -10,7 +10,7 @@ class ContractModelWrapper(
         EmployeeModelWrapperMixin, ConsultantModelWrapperMixin,
         PiModelWrapperMixin, ModelWrapper):
 
-    model = 'bhp_personnel.contract'
+    model = 'contract.contract'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
     next_url_name = settings.DASHBOARD_URL_NAMES.get('contract_listboard_url')

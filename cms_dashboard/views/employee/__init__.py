@@ -1,2 +1,3 @@
+from .appraisal_dashboard import AppraisalDashboardView
 from .employee_dashboard import DashboardView
 from .employee_listboard_view import EmployeeListBoardView

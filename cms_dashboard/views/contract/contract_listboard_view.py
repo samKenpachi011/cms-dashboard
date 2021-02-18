@@ -20,7 +20,7 @@ class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     listboard_fa_icon = "far fa-user-circle"
 
     listboard_view_filters = ListBoardFilters()
-    model = 'bhp_personnel.contract'
+    model = 'contract.contract'
     model_wrapper_cls = ContractModelWrapper
     navbar_name = 'cms_dashboard'
     navbar_selected_item = 'contract'
