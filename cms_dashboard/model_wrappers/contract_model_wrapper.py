@@ -11,13 +11,12 @@ class ContractModelWrapper(
         PiModelWrapperMixin, ModelWrapper):
 
     model = 'contract.contract'
-    querystring_attrs = ['identifier']
-    next_url_attrs = ['identifier']
+    querystring_attrs = ['identifier', 'id']
+    next_url_attrs = ['identifier', 'id']
     next_url_name = settings.DASHBOARD_URL_NAMES.get('contract_listboard_url')
 
     @property
     def personnel_name(self):
-
         full_name = None
 
         if self.object.identifier[0] == 'E':

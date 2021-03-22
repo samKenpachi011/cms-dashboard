@@ -18,3 +18,5 @@ class ContractModelWrapperMixin:
             return ContractModelWrapper(
                 Contract(identifier=self.identifier),
                 next_url_name=self.next_url_name)
+
+
