@@ -22,10 +22,30 @@
 
 {% block main %}
 
+<div class="dropdown">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    PERFORMANCE SCORE KEY
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style=" padding-bottom:0px;">
+
+	  <ul class="list-group">
+		  <li class="list-group-item disabled">Exceptional Performance <span class="badge">5</span></li>
+		  <li class="list-group-item disabled">Exceeds Expectations <span class="badge">4</span></li>
+		  <li class="list-group-item disabled">Competent Meets Standards <span class="badge">3</span></li>
+		  <li class="list-group-item disabled">Weak and Inconsistent Performance &nbsp; <span class="badge">2</span></li>
+		  <li class="list-group-item disabled">Unacceptable Performance <span class="badge">1</span></li>
+		  <li class="list-group-item disabled">Not Rated <span class="badge">NR</span></li>
+		</ul>
+
+  </div>
+  </div>
+
+
+
 <!-- start listboard main block-->
 <div class="row">
 	<div id="toolbar">
-		<h3 style="font-weight:300"><img src="" width="40"></img> Employee Appraisals</h3>
+		<h3 style="font-weight:300"><img src="" width="40"> Employee Appraisals</h3>
 		<a id="appraisal_add" title="add appraisal" class="btn btn-sm btn-default" role="button"
 			href="{{ appraisal_add_url }}">
 				<i class="fa fa-plus fa-sm"></i> Add Appraisal
