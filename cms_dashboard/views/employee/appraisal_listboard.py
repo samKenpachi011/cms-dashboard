@@ -37,7 +37,9 @@ class AppraisalListBoardView(
         context = super().get_context_data(**kwargs)
         contract = self.kwargs.get('contract')
         model_cls = django_apps.get_model('contract.performanceassessment')
-        wrapped = self.model_wrapper_cls(model_cls(contract=self.contract_obj))
+        wrapped = self.model_wrapper_cls(
+            model_cls(contract=self.contract_obj,
+                      emp_identifier=self.contract_obj.identifier))
         context.update(
             contract=contract,
             appraisal_add_url=wrapped.href,

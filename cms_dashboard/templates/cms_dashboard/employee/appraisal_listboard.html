@@ -52,7 +52,6 @@
     <th data-field='contract' data-sortable='true' data-filter-control="input">Contract</th>
     <th data-field='overall_perf_score' data-sortable='true' data-filter-control="input">Overall Performance Score</th>
     <th data-field='final_assess_score' data-sortable='true' data-filter-control="input">Final Assessment Score</th>
-    <th data-field='approved_by' data-sortable='true' data-filter-control="input">Approved By</th>
     <!-- end results header -->
 {% endblock listboard_table_header %}
 
@@ -80,7 +79,6 @@
 	<td nowrap>
 		<span class="badge badge-pill badge-info">{{ result.object.final_assess_score }}</span>
 	</td>
-	<td nowrap>{{ result.object.approved_by }}</td>
 	{% endblock listboard_table_columns %}
 </tr>
 
