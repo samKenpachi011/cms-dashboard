@@ -70,7 +70,7 @@
      <!-- begin results header -->
     <th>#</th>
     <th data-field='contract' data-sortable='true' data-filter-control="input">Contract</th>
-    <th data-field='overall_perf_score' data-sortable='true' data-filter-control="input">Overall Performance Score</th>
+    <th data-field='overall_perf_score' data-sortable='true' data-filter-control="input">Review</th>
     <th data-field='final_assess_score' data-sortable='true' data-filter-control="input">Final Assessment Score</th>
     <!-- end results header -->
 {% endblock listboard_table_header %}
@@ -85,7 +85,16 @@
 	<td>
 		<div class="btn-group">
 		{% edit_appraisal_button result %}
-		{% add_performance_imp_button result %}
+		{% kpa_button result %}
+		{% strategic_orientation_button result %}
+		{% results_focus_button result %}
+		{% leadership_and_motivation_button result %}
+		{% innovation_and_creativity_button result %}
+		{% planning_skills_button result %}
+		{% interpersonal_skills_button result %}
+		{% communication_skills_button result %}
+		{% knowledge_and_productivity_button result %}
+		{% quality_of_work_button result %}
 		</div>
 	</td>
 
@@ -95,7 +104,7 @@
 
 	{% block listboard_table_columns %}
 	<td nowrap>{{ result.object.contract }}</td>
-	<td nowrap>{{ result.object.overall_perf_score }}</td>
+	<td nowrap>{{ result.object.review }}</td>
 	<td nowrap>
 		<span class="badge badge-pill badge-info">{{ result.object.final_assess_score }}</span>
 	</td>

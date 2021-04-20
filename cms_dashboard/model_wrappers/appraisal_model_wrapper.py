@@ -4,10 +4,26 @@ from django.conf import settings
 from edc_model_wrapper import ModelWrapper
 
 from .employee_model_wrapper_mixin import EmployeeModelWrapperMixin
-from .performance_imp_model_wrapper_mixin import PerformanceImpModelWrapperMixin
+from .kpa_model_wrapper_mixin import KpaModelWrapperMixin
+from .professional_skills_model_wrapper_mixin import (
+    StrategicOrientationModelWrapperMixin, ResultsFocusModelWrapperMixin,
+    LeadershipAndMotivationModelWrapperMixin,
+    InnovationAndCreativityModelWrapperMixin, PlanningSkillsModelWrapperMixin,
+    InterpersonalSkillsModelWrapperMixin, CommunicationSkillsModelWrapperMixin,
+    KnowledgeAndProductivityModelWrapperMixin, QualityOfWorkModelWrapperMixin)
 
 
 class AppraisalModelWrapper(EmployeeModelWrapperMixin,
+                            KpaModelWrapperMixin,
+                            QualityOfWorkModelWrapperMixin,
+                            KnowledgeAndProductivityModelWrapperMixin,
+                            CommunicationSkillsModelWrapperMixin,
+                            InterpersonalSkillsModelWrapperMixin,
+                            PlanningSkillsModelWrapperMixin,
+                            InnovationAndCreativityModelWrapperMixin,
+                            LeadershipAndMotivationModelWrapperMixin,
+                            ResultsFocusModelWrapperMixin,
+                            StrategicOrientationModelWrapperMixin,
                             ModelWrapper):
 
     model = 'contract.performanceassessment'
@@ -17,7 +33,6 @@ class AppraisalModelWrapper(EmployeeModelWrapperMixin,
 
     @property
     def contract(self):
-        # import pdb; pdb.set_trace()
         return self.object.contract
 
     @property
