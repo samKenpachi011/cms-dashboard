@@ -9,6 +9,7 @@
 {{ block.super }}
 	<link type="text/css" rel="stylesheet" href="{% static 'cms_dashboard/css/report.css' %}">
 	<link href="{% static 'cms_dashboard/css/bootstrap-table.min.css' %}"rel=stylesheet>
+    <link type="text/css" rel="stylesheet" href="{% static 'cms_dashboard/css/popup.css' %}">
 
 {% endblock extra-css %}
 
@@ -24,7 +25,7 @@
 
 <div class="dropdown">
   <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    PERFORMANCE SCORE KEY
+    PERFORMANCE SCORE KEY <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style=" padding-bottom:0px;">
 
@@ -38,9 +39,87 @@
 		</ul>
 
   </div>
+    
+    <div class="btn-group">
+  <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SCALES KEY <i class="fa fa-caret-down"></i></button>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    
+		  <li> <a class="dropdown-item" id="myBtn">Performance Rating Scale</a></li>
+		  <li> <a class="dropdown-item" id="Btn">Performance Scoring & Classification Scale</a> </li>
+		  <li> <a class="dropdown-item" id="Btn3">Competent Meets Standards </a></li>
+  </div>
+</div>
   </div>
 
+<div id="myModal" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    <embed src="{% static 'cms_dashboard/doc/Performance Rating Scale.pdf' %}" type="application/pdf" width="100%" height="95%">
+</object>
+  </div>
+
+</div>
+
+<div id="myModal2" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
+    <embed src="{% static 'cms_dashboard/doc/Performance Scoring.pdf' %}" type="application/pdf" width="100%" height="95%">
+</object>
+  </div>
+
+</div>
+
+<div id="myModal3" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('myModal3').style.display='none'">&times;</span>
+    <embed src="{% static 'cms_dashboard/doc/Timeline.pdf' %}" type="application/pdf" width="100%" height="95%">
+</object>
+  </div>
+
+</div>
+
+<script>
+    // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("Btn");
+
+// When the user clicks the button, open the modal
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+// Get the modal
+var modal3 = document.getElementById("myModal3");
+
+// Get the button that opens the modal
+var btn3 = document.getElementById("Btn3");
+
+// When the user clicks the button, open the modal
+btn3.onclick = function() {
+  modal3.style.display = "block";
+}
+
+</script>
 
 <!-- start listboard main block-->
 <div class="row">
@@ -133,4 +212,7 @@
 </div>  <!--end panel -->
 </div> <!--end panel-group -->
 <!-- end listboard main block -->
+
+<div id="dialog" style="display: none">
+</div>
 {% endblock main %}
