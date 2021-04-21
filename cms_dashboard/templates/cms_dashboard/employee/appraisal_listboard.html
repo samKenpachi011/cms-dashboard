@@ -120,6 +120,16 @@ btn3.onclick = function() {
 }
 
 </script>
+<style>
+div.scrollmenu {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+}
+</style>
 
 <!-- start listboard main block-->
 <div class="row">
@@ -162,18 +172,21 @@ btn3.onclick = function() {
 <tr>
 
 	<td>
-		<div class="btn-group">
-		{% edit_appraisal_button result %}
-		{% kpa_button result %}
-		{% strategic_orientation_button result %}
-		{% results_focus_button result %}
-		{% leadership_and_motivation_button result %}
-		{% innovation_and_creativity_button result %}
-		{% planning_skills_button result %}
-		{% interpersonal_skills_button result %}
-		{% communication_skills_button result %}
-		{% knowledge_and_productivity_button result %}
-		{% quality_of_work_button result %}
+        <div class="scrollmenu">
+		
+             <div style="width:450px">
+                {% edit_appraisal_button result %}
+                {% kpa_button result %}
+                {% strategic_orientation_button result %}
+                {% results_focus_button result %}
+                {% leadership_and_motivation_button result %}
+                {% innovation_and_creativity_button result %}
+                {% planning_skills_button result %}
+                {% interpersonal_skills_button result %}
+                {% communication_skills_button result %}
+                {% knowledge_and_productivity_button result %}
+                {% quality_of_work_button result %}
+           </div>
 		</div>
 	</td>
 
