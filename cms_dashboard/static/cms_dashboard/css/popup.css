@@ -37,3 +37,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+/*.scrollmenu {*/
+/*  overflow-x: scroll;*/
+/*  white-space: nowrap;*/
+/*}*/
+
+/*.scrollmenu a {*/
+/*  display: inline-block;}*/
