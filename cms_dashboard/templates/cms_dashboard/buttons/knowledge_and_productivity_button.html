@@ -1,0 +1,14 @@
+ <a id="kpa_add_{{ emp_identifier }}"
+ 	title="{{ title }}"
+
+ 	{% if knowledge_and_productivity %}
+            class="btn btn-success btn-sm" data-toggle="tooltip"  data-placement="right"
+            href="{{ add_knowledge_and_productivity_href }}">
+    {% else %}
+            class="btn btn-warning btn-sm" data-toggle="tooltip"  data-placement="right"
+        href="{{ add_knowledge_and_productivity_href }}">
+    {% endif %}
+
+     	Job Knowledge And Productivity
+
+ </a>
