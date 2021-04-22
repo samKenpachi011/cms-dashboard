@@ -29,15 +29,10 @@
     <td style="white-space: nowrap;">
     <div class="btn-group">
     {% edit_details_button result %}
-     <a id="btn-contract" class="btn btn-primary btn-sm" role="button"
-     title="add_contract" href="{{result.contract_model_obj.href }}">
-     <i class="far fa-user-circle fa-sm"></i> Contract  <i class="fa fa-share"></i></a>
 
-     {% if result.contract_model_obj %}
      <a id="btn-dashboard" class="btn btn-success btn-sm" role="button"
      title="add_dashboard" href="{% url employee_dashboard_url result.identifier %}">
      <i class="far fa-user-circle fa-sm"></i> Dashboard  <i class="fa fa-share"></i></a>
-     {% endif %}
 
     </div>
     </td>
