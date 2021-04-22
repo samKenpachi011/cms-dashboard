@@ -24,7 +24,7 @@
 {% block main %}
 
 <div class="dropdown">
-  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key" ></i>
     PERFORMANCE SCORE KEY <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style=" padding-bottom:0px;">
@@ -41,7 +41,7 @@
   </div>
     
     <div class="btn-group">
-  <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SCALES KEY <i class="fa fa-caret-down"></i></button>
+  <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key"></i> SCALES KEY <i class="fa fa-caret-down"></i></button>
     <span class="sr-only">Toggle Dropdown</span>
   </button>
   <div class="dropdown-menu">
@@ -57,7 +57,7 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    <span class="close" onclick="document.getElementById('myModal').style.display='none'"><i class="fas fa-window-close" style="--fa-primary-color: tomato"></i></span>
     <embed src="{% static 'cms_dashboard/doc/Performance Rating Scale.pdf' %}" type="application/pdf" width="100%" height="95%">
 </object>
   </div>
@@ -68,7 +68,7 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
+    <span class="close" onclick="document.getElementById('myModal2').style.display='none'"><i class="fas fa-window-close" style="--fa-primary-color: tomato"></i></span>
     <embed src="{% static 'cms_dashboard/doc/Performance Scoring.pdf' %}" type="application/pdf" width="100%" height="95%">
 </object>
   </div>
@@ -79,7 +79,7 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" onclick="document.getElementById('myModal3').style.display='none'">&times;</span>
+    <span class="close" onclick="document.getElementById('myModal3').style.display='none'"><i class="fas fa-window-close" style="--fa-primary-color: tomato"></i></span>
     <embed src="{% static 'cms_dashboard/doc/Timeline.pdf' %}" type="application/pdf" width="100%" height="95%">
 </object>
   </div>
