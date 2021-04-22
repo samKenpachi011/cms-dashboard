@@ -27,13 +27,7 @@
 
 	    <div class="panel panel-info">
 	      <div class="panel-heading">
-	      	Contracts
-	      
-	      	<span class="pull-right">
-                <a id="btn-contract" class="btn btn-default btn-sm" role="button"
-			     title="add_contract" href="{{contract.href }}">
-			     <i class="far fa-user-circle fa-sm"></i> Add Contract </a>            
-            </span>
+	      		Contracts
 	      </div>
 	      <div class="panel-body">
 	      	<table class="table table-striped">
@@ -48,6 +42,26 @@
 		      </tr>
 		    </thead>
 		    <tbody>
+		    {% if not active_contract %}
+		    	<td></td>
+		    	<td style="white-space: nowrap;">
+				    <div class="btn-group">
+						{% job_descrition_button contract %}
+						{% if contract.job_description_model_obj %}
+							<a 	id="btn-contract" class="btn btn-default btn-sm" role="button"
+					     		title="add_contract" href="{{contract.href }}">
+					     		<i class="far fa-user-circle fa-sm"></i> Add Contract
+					     	</a> 
+					    {% endif %} 	
+					</div>
+	
+				    </td>
+			        <td>--</td>
+			        <td>--</td>
+			        <td>--</td>
+			        <td>--</td>
+			    </td>
+		    {% endif %}
 		    {%for contract in contracts %}
 		      <tr>
 		      	<td>{{ forloop.counter }}</td>
@@ -55,8 +69,9 @@
 			    <div class="btn-group">
 			     <a id="btn-contract" class="btn btn-primary btn-sm" role="button"
 			     title="add_contract" href="{{contract.href }}">
-			     <i class="far fa-user-circle fa-sm"></i> Edit Contract  <i class="fa fa-share"></i></a>			     
-
+			     <i class="fa fa-pencil-alt"></i></a>			     
+				{% job_descrition_button contract %}
+				
 				{% appraisal_listboard_button contract %}
 				</div>
 

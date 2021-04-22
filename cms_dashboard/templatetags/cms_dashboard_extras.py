@@ -52,6 +52,14 @@ def kpa_button(model_wrapper):
         kpa_object=model_wrapper.kpa_model_obj)
 
 
+@register.inclusion_tag('cms_dashboard/buttons/job_description_button.html')
+def job_descrition_button(model_wrapper):
+    return dict(
+        add_jobdescription_href=model_wrapper.job_description.href,
+        emp_identifier=model_wrapper.emp_identifier,
+        job_description_model_obj=model_wrapper.job_description_model_obj)
+
+
 @register.inclusion_tag('cms_dashboard/buttons/strategic_orientation_button.html')
 def strategic_orientation_button(model_wrapper):
     wrapped_model_cls = model_wrapper.strategic_model_cls

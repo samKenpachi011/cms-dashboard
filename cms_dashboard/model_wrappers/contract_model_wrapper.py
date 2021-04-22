@@ -4,14 +4,16 @@ from edc_model_wrapper import ModelWrapper
 from .employee_model_wrapper_mixin import EmployeeModelWrapperMixin
 from .consultant_model_wrapper_mixin import ConsultantModelWrapperMixin
 from .pi_model_wrapper_mixin import PiModelWrapperMixin
+from .job_description_model_wrapper_mixin import JobDescriptionModelWrapperMixin
 
 
 class ContractModelWrapper(
         EmployeeModelWrapperMixin, ConsultantModelWrapperMixin,
+        JobDescriptionModelWrapperMixin,
         PiModelWrapperMixin, ModelWrapper):
 
     model = 'contract.contract'
-    querystring_attrs = ['identifier', 'id']
+    querystring_attrs = ['identifier', 'id', 'job_description']
     next_url_attrs = ['identifier', 'id']
     next_url_name = settings.DASHBOARD_URL_NAMES.get('contract_listboard_url')
 
@@ -38,3 +40,7 @@ class ContractModelWrapper(
                 full_name = first_name+' '+last_name
 
         return full_name
+
+    @property
+    def contract(self):
+        return self.object
