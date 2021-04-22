@@ -172,22 +172,31 @@ div.scrollmenu a {
 <tr>
 
 	<td>
-        <div class="scrollmenu">
-		
-             <div style="width:450px">
-                {% edit_appraisal_button result %}
-                {% kpa_button result %}
-                {% strategic_orientation_button result %}
-                {% results_focus_button result %}
-                {% leadership_and_motivation_button result %}
-                {% innovation_and_creativity_button result %}
-                {% planning_skills_button result %}
-                {% interpersonal_skills_button result %}
-                {% communication_skills_button result %}
-                {% knowledge_and_productivity_button result %}
+
+        <div class="dropdown">
+            <div class="btn-group">
+            {% edit_appraisal_button result %}
+        {% kpa_button result %}
+  <div class="btn-group dropup">
+  <button class="btn btn-warning btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div style="position:relative;" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                {% strategic_orientation_button result %}</br>
+                {% results_focus_button result %}</br>
+                {% leadership_and_motivation_button result %}</br>
+                {% innovation_and_creativity_button result %}</br>
+                {% planning_skills_button result %}</br>
+                {% interpersonal_skills_button result %}</br>
+                {% communication_skills_button result %}</br>
+                {% knowledge_and_productivity_button result %}</br>
                 {% quality_of_work_button result %}
-           </div>
-		</div>
+      </div>
+  </div>
+  </div>
+</div>
+
 	</td>
 
 	{% block listboard_table_button_column %}
