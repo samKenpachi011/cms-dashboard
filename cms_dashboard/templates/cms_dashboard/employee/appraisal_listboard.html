@@ -24,7 +24,7 @@
 {% block main %}
 
 <div class="dropdown">
-  <button class="btn btn-sm btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key" ></i>
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key" ></i>
     PERFORMANCE SCORE KEY <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style=" padding-bottom:0px;">
@@ -41,7 +41,7 @@
   </div>
     
     <div class="btn-group">
-  <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key"></i> SCALES KEY <i class="fa fa-caret-down"></i></button>
+  <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-key"></i> SCALES KEY <i class="fa fa-caret-down"></i></button>
     <span class="sr-only">Toggle Dropdown</span>
   </button>
   <div class="dropdown-menu">
@@ -138,9 +138,11 @@ div.scrollmenu a {
 		<a id="appraisal_add" title="add appraisal" class="btn btn-sm btn-default" role="button"
 			href="{{ appraisal_add_url }}">
 				<i class="fa fa-plus fa-sm"></i> Add Appraisal
+
     	</a>&nbsp&nbsp
 
             {% add_performance_imp_button performance_imp_obj %}
+
 	</div>
 </div>
 <!-- begin table -->
@@ -196,6 +198,7 @@ div.scrollmenu a {
         </button>
       <div style="position:relative;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
 
+
                 {% strategic_orientation_button result %}</br>
                 {% results_focus_button result %}</br>
                 {% leadership_and_motivation_button result %}</br>
@@ -206,8 +209,9 @@ div.scrollmenu a {
                 {% knowledge_and_productivity_button result %}</br>
                 {% quality_of_work_button result %}
       </div>
-    </div>
   </div>
+  </div>
+</div>
 
 	</td>
 

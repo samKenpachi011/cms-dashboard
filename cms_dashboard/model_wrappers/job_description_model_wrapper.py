@@ -17,7 +17,7 @@ class JobDescriptionModelWrapper(ModelWrapper):
 
     @property
     def identifier(self):
-        return self.object.contract.identifier
+        return self.object.identifier
 
     @property
     def supervisor(self):

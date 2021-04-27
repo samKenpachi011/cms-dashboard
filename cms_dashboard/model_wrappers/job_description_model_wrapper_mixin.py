@@ -37,6 +37,7 @@ class JobDescriptionModelWrapperMixin:
         unpersisted job description model instance.
         """
         options = dict(
+            identifier=self.contract.identifier,
             contract=self.contract)
         if hasattr(self, 'employee_model_obj'):
             options.update(
