@@ -1,3 +1,4 @@
+from django.apps import apps as django_apps
 from django.conf import settings
 from edc_model_wrapper import ModelWrapper
 
@@ -12,3 +13,8 @@ class KpaModelWrapper(ModelWrapper):
     @property
     def contract(self):
         return self.object.contract
+
+    @property
+    def kpa_cls(self):
+        return django_apps.get_model(
+            'contract.keyperformancearea')

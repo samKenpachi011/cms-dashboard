@@ -139,10 +139,8 @@ div.scrollmenu a {
 			href="{{ appraisal_add_url }}">
 				<i class="fa fa-plus fa-sm"></i> Add Appraisal
     	</a>&nbsp&nbsp
-        <a id="imp_add" title="add appraisal" class="btn btn-info btn-sm btn-default" role="button"
-			href="{{ appraisal_add_url }}">
-				<i class="fa fa-plus fa-sm"></i> Add Performance IMP
-    	</a>
+
+            {% add_performance_imp_button performance_imp_obj %}
 	</div>
 </div>
 <!-- begin table -->
@@ -162,7 +160,7 @@ div.scrollmenu a {
 {% block listboard_table_header %}
      <!-- begin results header -->
     <th>#</th>
-    <th data-field='contract' data-sortable='true' data-filter-control="input">Contract</th>
+    <th style="width:10px;" data-field='contract' data-sortable='true' data-filter-control="input">Contract</th>
     <th data-field='overall_perf_score' data-sortable='true' data-filter-control="input">Review</th>
     <th data-field='final_assess_score' data-sortable='true' data-filter-control="input">Final Assessment Score</th>
     <!-- end results header -->
@@ -184,21 +182,17 @@ div.scrollmenu a {
           Section 1: KPA's <span class="caret"></span>
       </button>
       <div style="position:relative;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-
-                {% strategic_orientation_button result %}</br>
-                {% results_focus_button result %}</br>
-                {% leadership_and_motivation_button result %}</br>
-                {% innovation_and_creativity_button result %}</br>
-                {% planning_skills_button result %}</br>
-                {% interpersonal_skills_button result %}</br>
-                {% communication_skills_button result %}</br>
-                {% knowledge_and_productivity_button result %}</br>
-                {% quality_of_work_button result %}
+	        {% for kpa in result.kpa_list %}
+              <li style="color:white;"><a class="btn btn-info btn-sm " role="button"
+			href="{{ kpa.get_absolute_url }}">
+				 {{ kpa.kpa_nd_objective }}
+              </a></li>
+	        {% endfor %}
       </div>
     </div>
       <div class="btn-group">
         <button class="btn btn-warning btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Section 2: Pro Skills <span class="caret"></span>
+            Section 2: Professional Skills <span class="caret"></span>
         </button>
       <div style="position:relative;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
 

@@ -38,8 +38,7 @@ def edit_details_button(model_wrapper):
 def add_performance_imp_button(model_wrapper):
     title = ['Add performance improvement plan.']
     return dict(
-        # performance_assessment=model_wrapper.object,
-        # add_performance_imp=model_wrapper.performance_imp.href,
+        add_performance_imp=model_wrapper.href,
         title=' '.join(title))
 
 

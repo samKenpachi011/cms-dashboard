@@ -9,7 +9,7 @@ from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMi
 from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
-from ...model_wrappers import AppraisalModelWrapper
+from ...model_wrappers import AppraisalModelWrapper, PerformanceImpModelWrapper
 
 
 class AppraisalListBoardView(
@@ -33,6 +33,24 @@ class AppraisalListBoardView(
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
+    @property
+    def performance_imp_obj(self):
+        """Returns a non persistent obj
+        """
+        performance_imp_cls = django_apps.get_model(
+            'contract.performanceimpplan')
+        pio=None
+        try:
+            performance_imp = performance_imp_cls.objects.get(
+                contract=self.contract_obj)
+        except performance_imp_cls.DoesNotExist:
+            pio = performance_imp_cls(contract=self.contract_obj,
+                                      emp_identifier=self.contract_obj.identifier)
+        else:
+            pio = performance_imp
+        finally:
+            return PerformanceImpModelWrapper(pio)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         contract = self.kwargs.get('contract')
@@ -43,6 +61,7 @@ class AppraisalListBoardView(
         context.update(
             contract=contract,
             appraisal_add_url=wrapped.href,
+            performance_imp_obj=self.performance_imp_obj
         )
         return context
 
