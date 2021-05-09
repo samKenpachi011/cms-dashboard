@@ -4,20 +4,21 @@ from edc_model_wrapper import ModelWrapper
 from .employee_model_wrapper_mixin import EmployeeModelWrapperMixin
 from .consultant_model_wrapper_mixin import ConsultantModelWrapperMixin
 from .pi_model_wrapper_mixin import PiModelWrapperMixin
+from .job_description_model_wrapper_mixin import JobDescriptionModelWrapperMixin
 
 
 class ContractModelWrapper(
         EmployeeModelWrapperMixin, ConsultantModelWrapperMixin,
+        JobDescriptionModelWrapperMixin,
         PiModelWrapperMixin, ModelWrapper):
 
-    model = 'bhp_personnel.contract'
-    querystring_attrs = ['identifier']
-    next_url_attrs = ['identifier']
-    next_url_name = settings.DASHBOARD_URL_NAMES.get('contract_listboard_url')
+    model = 'contract.contract'
+    querystring_attrs = ['identifier', 'id', 'job_description']
+    next_url_attrs = ['identifier', ]
+    next_url_name = settings.DASHBOARD_URL_NAMES.get('employee_dashboard_url')
 
     @property
     def personnel_name(self):
-
         full_name = None
 
         if self.object.identifier[0] == 'E':
@@ -39,3 +40,7 @@ class ContractModelWrapper(
                 full_name = first_name+' '+last_name
 
         return full_name
+
+    @property
+    def contract(self):
+        return self.object

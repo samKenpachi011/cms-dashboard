@@ -1,0 +1,14 @@
+ <a style="padding-right:61px;" id="kpa_add_{{ emp_identifier }}"
+ 	title="{{ title }}"
+
+ 	{% if innovation_and_creativity_object %}
+            class="btn btn-success btn-sm" data-toggle="tooltip"  data-placement="right"
+            href="{{ add_innovation_and_creativity_href }}">
+    {% else %}
+            class="btn btn-warning btn-sm" data-toggle="tooltip"  data-placement="right"
+        href="{{ add_innovation_and_creativity_href }}">
+    {% endif %}
+
+     	Innovation and Creativity
+
+ </a>

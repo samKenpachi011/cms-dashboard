@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class ConsultantModelWrapperMixin:
 
-    model = 'bhp_personnel.consultant'
+    model = 'contract.consultant'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
 
@@ -37,7 +37,7 @@ class ConsultantModelWrapperMixin:
 
     @property
     def consultant_cls(self):
-        return django_apps.get_model('bhp_personnel.consultant')
+        return django_apps.get_model('contract.consultant')
 
     @property
     def create_consultant_options(self):

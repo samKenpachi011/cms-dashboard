@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class EmployeeModelWrapperMixin:
 
-    model = 'bhp_personnel.employee'
+    model = 'contract.employee'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
 

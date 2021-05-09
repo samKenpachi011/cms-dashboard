@@ -12,7 +12,8 @@ from ...model_wrappers import ContractModelWrapper
 
 
 class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
-                    ListboardFilterViewMixin, SearchFormViewMixin, ListboardView):
+                            ListboardFilterViewMixin, SearchFormViewMixin,
+                            ListboardView):
 
     listboard_template = 'contract_listboard_template'
     listboard_url = 'contract_listboard_url'
