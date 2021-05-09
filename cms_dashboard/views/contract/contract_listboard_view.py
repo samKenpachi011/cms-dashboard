@@ -7,7 +7,7 @@ from edc_dashboard.view_mixins import ListboardFilterViewMixin, SearchFormViewMi
 from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
-from ..contract_filters import ListBoardFilters
+from ..contract_filters import ContractListBoardFilters
 from ...model_wrappers import ContractModelWrapper
 
 
@@ -20,8 +20,8 @@ class ContractListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     listboard_panel_style = 'success'
     listboard_fa_icon = "far fa-user-circle"
 
-    listboard_view_filters = ListBoardFilters()
-    model = 'contract.contract'
+    listboard_view_filters = ContractListBoardFilters()
+    model = 'bhp_personnel.contract'
     model_wrapper_cls = ContractModelWrapper
     navbar_name = 'cms_dashboard'
     navbar_selected_item = 'contract'
