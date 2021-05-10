@@ -10,7 +10,6 @@ class JobDescriptionModelWrapper(ModelWrapper):
     next_url_attrs = ['identifier', ]
     next_url_name = settings.DASHBOARD_URL_NAMES.get('employee_dashboard_url')
 
-
     @property
     def identifier(self):
         return self.object.identifier

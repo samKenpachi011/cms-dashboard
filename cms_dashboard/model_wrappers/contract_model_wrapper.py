@@ -25,19 +25,19 @@ class ContractModelWrapper(
             first_name = self.emp_first_name
             last_name = self.emp_last_name
             if first_name is not None and last_name is not None:
-                full_name = first_name+' '+last_name
+                full_name = first_name + ' ' + last_name
 
         elif self.object.identifier[0] == 'P':
             first_name = self.pi_first_name
             last_name = self.pi_last_name
             if first_name is not None and last_name is not None:
-                full_name = first_name+' '+last_name
+                full_name = first_name + ' ' + last_name
 
         elif self.object.identifier[0] == 'C':
             first_name = self.consultant_first_name
             last_name = self.consultant_last_name
             if first_name is not None and last_name is not None:
-                full_name = first_name+' '+last_name
+                full_name = first_name + ' ' + last_name
 
         return full_name
 

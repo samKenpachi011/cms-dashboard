@@ -37,7 +37,7 @@ class ConsultantModelWrapperMixin:
 
     @property
     def consultant_cls(self):
-        return django_apps.get_model('contract.consultant')
+        return django_apps.get_model('bhp_personnel.consultant')
 
     @property
     def create_consultant_options(self):
