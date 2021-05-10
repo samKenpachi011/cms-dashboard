@@ -12,7 +12,7 @@ class ContractModelWrapper(
         JobDescriptionModelWrapperMixin,
         PiModelWrapperMixin, ModelWrapper):
 
-    model = 'contract.contract'
+    model = 'bhp_personnel.contract'
     querystring_attrs = ['identifier', 'id', 'job_description']
     next_url_attrs = ['identifier', ]
     next_url_name = settings.DASHBOARD_URL_NAMES.get('employee_dashboard_url')
@@ -25,19 +25,19 @@ class ContractModelWrapper(
             first_name = self.emp_first_name
             last_name = self.emp_last_name
             if first_name is not None and last_name is not None:
-                full_name = first_name+' '+last_name
+                full_name = first_name + ' ' + last_name
 
         elif self.object.identifier[0] == 'P':
             first_name = self.pi_first_name
             last_name = self.pi_last_name
             if first_name is not None and last_name is not None:
-                full_name = first_name+' '+last_name
+                full_name = first_name + ' ' + last_name
 
         elif self.object.identifier[0] == 'C':
             first_name = self.consultant_first_name
             last_name = self.consultant_last_name
             if first_name is not None and last_name is not None:
-                full_name = first_name+' '+last_name
+                full_name = first_name + ' ' + last_name
 
         return full_name
 

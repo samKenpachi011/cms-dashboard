@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class PiModelWrapperMixin:
 
-    model = 'contract.pi'
+    model = 'bhp_personnel.pi'
     querystring_attrs = ['identifier']
     next_url_attrs = ['identifier']
 

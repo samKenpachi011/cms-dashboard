@@ -10,7 +10,7 @@ class AppraisalModelWrapperMixin:
 
     @property
     def appraisal_model_cls(self):
-        return django_apps.get_model('contract.performanceassessment')
+        return django_apps.get_model('bhp_personnel.performanceassessment')
 
     @property
     def appraisal_model_obj(self):

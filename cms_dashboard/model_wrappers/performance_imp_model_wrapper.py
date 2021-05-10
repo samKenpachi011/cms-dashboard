@@ -5,7 +5,7 @@ from edc_model_wrapper import ModelWrapper
 
 class PerformanceImpModelWrapper(ModelWrapper):
 
-    model = 'contract.performanceimpplan'
+    model = 'bhp_personnel.performanceimpplan'
     querystring_attrs = ['contract', 'emp_identifier']
     next_url_attrs = ['contract', 'emp_identifier']
     next_url_name = settings.DASHBOARD_URL_NAMES.get('appraisal_listboard_url')

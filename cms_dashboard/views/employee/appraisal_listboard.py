@@ -21,7 +21,7 @@ class AppraisalListBoardView(
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa-user-plus"
 
-    model = 'contract.performanceassessment'
+    model = 'bhp_personnel.performanceassessment'
     model_wrapper_cls = AppraisalModelWrapper
     navbar_name = 'cms_dashboard'
     navbar_selected_item = None
@@ -38,8 +38,8 @@ class AppraisalListBoardView(
         """Returns a non persistent obj
         """
         performance_imp_cls = django_apps.get_model(
-            'contract.performanceimpplan')
-        pio=None
+            'bhp_personnel.performanceimpplan')
+        pio = None
         try:
             performance_imp = performance_imp_cls.objects.get(
                 contract=self.contract_obj)
@@ -54,7 +54,7 @@ class AppraisalListBoardView(
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         contract = self.kwargs.get('contract')
-        model_cls = django_apps.get_model('contract.performanceassessment')
+        model_cls = django_apps.get_model('bhp_personnel.performanceassessment')
         wrapped = self.model_wrapper_cls(
             model_cls(contract=self.contract_obj,
                       emp_identifier=self.contract_obj.identifier))
@@ -84,7 +84,7 @@ class AppraisalListBoardView(
 
     @property
     def contract_obj(self):
-        contract_model_cls = django_apps.get_model('contract.contract')
+        contract_model_cls = django_apps.get_model('bhp_personnel.contract')
         try:
             contract = contract_model_cls.objects.get(
                 id=self.kwargs.get('contract'))

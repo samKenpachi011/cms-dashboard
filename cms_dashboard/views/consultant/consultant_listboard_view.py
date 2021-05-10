@@ -20,7 +20,7 @@ class ConsultantListBoardView(NavbarViewMixin, EdcBaseViewMixin,
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa-user-plus"
 
-    model = 'contract.consultant'
+    model = 'bhp_personnel.consultant'
     model_wrapper_cls = ConsultantModelWrapper
     navbar_name = 'cms_dashboard'
     navbar_selected_item = 'consultant'

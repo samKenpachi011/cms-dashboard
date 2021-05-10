@@ -1,5 +1,5 @@
+from django.apps import apps as django_apps
 from .contract_model_wrapper import ContractModelWrapper
-from contract.models import Contract
 
 
 class ContractModelWrapperMixin:
@@ -8,7 +8,8 @@ class ContractModelWrapperMixin:
 
     @property
     def contract_model_obj(self):
-        contracts = Contract.objects.filter(
+        contract_cls = django_apps.get_model('bhp_personnel.contract')
+        contracts = contract_cls.objects.filter(
             identifier=self.identifier)
         if contracts:
             contract = contracts.order_by('created').last()
@@ -16,7 +17,6 @@ class ContractModelWrapperMixin:
                contract, next_url_name=self.next_url_name)
         else:
             return ContractModelWrapper(
-                Contract(identifier=self.identifier),
+                contract_cls(identifier=self.identifier),
                 next_url_name=self.next_url_name)
-
 

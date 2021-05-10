@@ -31,7 +31,7 @@ class AppraisalModelWrapper(EmployeeModelWrapperMixin,
                             StrategicOrientationModelWrapperMixin,
                             ModelWrapper):
 
-    model = 'contract.performanceassessment'
+    model = 'bhp_personnel.performanceassessment'
     querystring_attrs = ['contract', 'emp_identifier', ]
     next_url_attrs = ['contract', 'emp_identifier', ]
     next_url_name = settings.DASHBOARD_URL_NAMES.get('appraisal_listboard_url')
@@ -46,17 +46,17 @@ class AppraisalModelWrapper(EmployeeModelWrapperMixin,
 
     @property
     def contract_cls(self):
-        return django_apps.get_model('contract.contract')
+        return django_apps.get_model('bhp_personnel.contract')
 
     # @property
     # def kpa_cls(self):
     #     return django_apps.get_model(
-    #         'contract.keyperformancearea')
+    #         'bhp_personnel.keyperformancearea')
 
     @property
     def kpa_cls(self):
         return django_apps.get_model(
-            'contract.keyperformancearea')
+            'bhp_personnel.keyperformancearea')
 
     @property
     def kpa_list(self):

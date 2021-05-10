@@ -29,7 +29,7 @@ class KpaModelWrapperMixin:
     @property
     def kpa_cls(self):
         return django_apps.get_model(
-            'contract.keyperformancearea')
+            'bhp_personnel.keyperformancearea')
 
     @property
     def create_kpa_options(self):

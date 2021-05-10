@@ -20,7 +20,7 @@ class PiListBoardView(
     listboard_panel_style = 'info'
     listboard_fa_icon = "fa-user-plus"
 
-    model = 'contract.pi'
+    model = 'bhp_personnel.pi'
     model_wrapper_cls = PiModelWrapper
     navbar_name = 'cms_dashboard'
     navbar_selected_item = 'pi'

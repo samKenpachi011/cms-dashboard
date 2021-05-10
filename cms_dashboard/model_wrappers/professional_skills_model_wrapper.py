@@ -3,44 +3,44 @@ from .model_wrapper_mixin import ProfessionalSkillsWrapper
 
 class StrategicOrientationModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.strategicorientation'
+    model = 'bhp_personnel.strategicorientation'
 
 
 class ResultsFocusModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.resultsfocus'
+    model = 'bhp_personnel.resultsfocus'
 
 
 class LeadershipAndMotivationModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.leadershipandmotivation'
+    model = 'bhp_personnel.leadershipandmotivation'
 
 
 class InnovationAndCreativityModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.innovationandcreativity'
+    model = 'bhp_personnel.innovationandcreativity'
 
 
 class PlanningSkillsModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.planningskills'
+    model = 'bhp_personnel.planningskills'
 
 
 class InterpersonalSkillsModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.interpersonalskills'
+    model = 'bhp_personnel.interpersonalskills'
 
 
 class CommunicationSkillsModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.communicationskills'
+    model = 'bhp_personnel.communicationskills'
 
 
 class KnowledgeAndProductivityModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.knowledgeandproductivity'
+    model = 'bhp_personnel.knowledgeandproductivity'
 
 
 class QualityOfWorkModelWrapper(ProfessionalSkillsWrapper):
 
-    model = 'contract.qualityofwork'
+    model = 'bhp_personnel.qualityofwork'
