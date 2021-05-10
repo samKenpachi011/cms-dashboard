@@ -1,6 +1,8 @@
 import re
 # from django.apps import apps as django_apps
+from django.contrib.auth import get_user
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 from django.db.models import Q
 from django.utils.decorators import method_decorator
 from edc_base.view_mixins import EdcBaseViewMixin
@@ -40,9 +42,15 @@ class EmployeeListBoardView(
 
     def get_queryset_filter_options(self, request, *args, **kwargs):
         options = super().get_queryset_filter_options(request, *args, **kwargs)
-        if kwargs.get('identifier'):
+        current_user = get_user(request)
+        if 'HR' not in current_user.groups.all():
+            employee = self.get_employee(user=current_user)
             options.update(
-                {'identifier': kwargs.get('identifier')})
+                {'identifier': employee.identifier})
+        else:
+            if kwargs.get('identifier'):
+                options.update(
+                    {'identifier': kwargs.get('identifier')})
         return options
 
     def extra_search_options(self, search_term):
@@ -50,3 +58,12 @@ class EmployeeListBoardView(
         if re.match('^[A-Z]+$', search_term):
             q = Q(first_name__exact=search_term)
         return q
+
+    def get_employee(self, user=None):
+        try:
+            employee = self.model_cls.objects.get(
+                email=user.email)
+        except self.model_cls.DoesNotExist:
+            raise ValidationError('Employee does not exist.')
+        else:
+            return employee
