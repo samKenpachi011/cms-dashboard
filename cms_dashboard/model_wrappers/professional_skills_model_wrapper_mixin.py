@@ -1,4 +1,3 @@
-from django.apps import apps as django_apps
 from .professional_skills_model_wrapper import (
     StrategicOrientationModelWrapper, ResultsFocusModelWrapper,
     LeadershipAndMotivationModelWrapper, InnovationAndCreativityModelWrapper,

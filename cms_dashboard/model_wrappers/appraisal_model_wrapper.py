@@ -18,7 +18,6 @@ from .performance_imp_model_wrapper_mixin import \
 
 class AppraisalModelWrapper(EmployeeModelWrapperMixin,
                             PerformanceImpModelWrapperMixin,
-                            KpaModelWrapper,
                             KpaModelWrapperMixin,
                             QualityOfWorkModelWrapperMixin,
                             KnowledgeAndProductivityModelWrapperMixin,
@@ -55,8 +54,7 @@ class AppraisalModelWrapper(EmployeeModelWrapperMixin,
 
     @property
     def kpa_cls(self):
-        return django_apps.get_model(
-            'bhp_personnel.keyperformancearea')
+        return django_apps.get_model('bhp_personnel.keyperformancearea')
 
     @property
     def kpa_list(self):
