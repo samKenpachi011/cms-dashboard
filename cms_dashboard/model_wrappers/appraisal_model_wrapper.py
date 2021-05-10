@@ -59,8 +59,7 @@ class AppraisalModelWrapper(EmployeeModelWrapperMixin,
     @property
     def kpa_list(self):
         wrapped_kpas = []
-        kpas = self.kpa_cls.objects.filter(
-            emp_identifier=self.emp_identifier)
+        kpas = self.kpa_cls.objects.filter(contract=self.contract)
         for kpa in kpas:
             wrapped_kpas.append(KpaModelWrapper(kpa))
         return wrapped_kpas

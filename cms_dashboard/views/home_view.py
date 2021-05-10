@@ -1,3 +1,6 @@
+from django.apps import apps as django_apps
+from django.core.exceptions import ValidationError
+from django.contrib.auth import get_user
 from django.views.generic import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
@@ -8,7 +11,7 @@ from bhp_personnel.models import Contract, Consultant, Employee, Pi
 class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
 
     template_name = 'cms_dashboard/home.html'
-    navbar_name = 'cms_dashboard'
+    navbar_name = 'cms_main_dashboard'
     navbar_selected_item = 'home'
 
     def get_context_data(self, **kwargs):
@@ -47,6 +50,14 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         completed_contracts = employee_completed.count() + \
             pi_completed.count() + consultant_completed.count()
 
+        current_user = get_user(self.request)
+        employee_supervisees = Employee.objects.filter(
+            supervisor__email=current_user.email)
+        consultant_supervisees = Consultant.objects.filter(
+            supervisor__email=current_user.email)
+        pi_supervisees = Pi.objects.filter(
+            supervisor__email=current_user.email)
+
         context.update(
             total=total,
             employees_total=employees.count(),
@@ -68,6 +79,35 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
             employee_completed=employee_completed.count(),
             pi_completed=pi_completed.count(),
             consultant_completed=consultant_completed.count(),
-            completed_contracts=completed_contracts
+            completed_contracts=completed_contracts,
+
+            # Supervisees
+            employee_supervisees=employee_supervisees.count(),
+            consultant_supervisees=consultant_supervisees.count(),
+            pi_supervisees=pi_supervisees.count(),
+
+            employee_identifier=self.employee_logged_in.identifier,
+            is_supervisor=self.is_supervisor
             )
         return context
+
+    @property
+    def employee_logged_in(self):
+        current_user = get_user(self.request)
+        try:
+            employee = Employee.objects.get(email=current_user.email)
+        except Employee.DoesNotExist:
+            raise ValidationError('Employee with email, does not exist.')
+        else:
+            return employee
+
+    @property
+    def is_supervisor(self):
+        supervisor_cls = django_apps.get_model('bhp_personnel.supervisor')
+        current_user = get_user(self.request)
+        try:
+            supervisor_cls.objects.get(email=current_user.email)
+        except supervisor_cls.DoesNotExist:
+            return False
+        else:
+            return True

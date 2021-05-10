@@ -156,3 +156,8 @@ def quality_of_work_button(model_wrapper):
     return dict(
         add_quality_of_work_href=wrapped_model.href,
         emp_identifier=wrapped_model.object.emp_identifier)
+
+
+@register.filter(name='has_group')
+def has_group(user, group_name):
+    return user.groups.filter(name=group_name).exists()

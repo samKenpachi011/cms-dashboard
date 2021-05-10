@@ -23,7 +23,7 @@ class AppraisalListBoardView(
 
     model = 'bhp_personnel.performanceassessment'
     model_wrapper_cls = AppraisalModelWrapper
-    navbar_name = 'cms_dashboard'
+    navbar_name = 'cms_main_dashboard'
     navbar_selected_item = None
     ordering = '-modified'
     paginate_by = 10

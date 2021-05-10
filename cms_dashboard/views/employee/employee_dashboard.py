@@ -14,7 +14,7 @@ from ...model_wrappers import ContractModelWrapper
 class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
 
     template_name = 'cms_dashboard/employee/employee_dashboard.html'
-    navbar_name = 'cms_dashboard'
+    navbar_name = 'cms_main_dashboard'
 
     @property
     def job_description_model_cls(self):

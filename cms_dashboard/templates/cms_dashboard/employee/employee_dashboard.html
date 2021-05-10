@@ -42,7 +42,7 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		    {% if not active_contract %}
+		    {% if not active_contract and request.user|has_group:"HR" %}
 		    	<td></td>
 		    	<td style="white-space: nowrap;">
 				    <div class="btn-group">
