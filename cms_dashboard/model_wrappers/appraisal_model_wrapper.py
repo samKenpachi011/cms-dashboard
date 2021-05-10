@@ -66,3 +66,55 @@ class AppraisalModelWrapper(EmployeeModelWrapperMixin,
         for kpa in kpas:
             wrapped_kpas.append(KpaModelWrapper(kpa))
         return wrapped_kpas
+
+    def get_professional_skills_scores(self):
+        models = ['strategicorientation', 'resultsfocus',
+                  'leadershipandmotivation', 'innovationandcreativity',
+                  'planningskills', 'interpersonalskills',
+                  'communicationskills', 'knowledgeandproductivity',
+                  'qualityofwork', ]
+
+        fields = ['strategic_orientation', 'results_focus',
+                  'leadership_motivation', 'innovation_creativity',
+                  'planning_skills', 'interpersonal_skills',
+                  'communication_skills', 'productivity',
+                  'quality_of_work', ]
+        score = 0
+        count = 0
+        for field, model in zip(fields, models):
+            model_cls = django_apps.get_model(f'bhp_personnel.{model}')
+
+            try:
+                model_obj = model_cls.objects.get(contract=self.contract)
+            except model_cls.DoesNotExist:
+                pass
+            else:
+                count += 1
+                score += int(getattr(model_obj, field))
+        if score > 0 and count > 0:
+            score /= count
+        return score
+
+    @property
+    def overall_score(self):
+        if self.contract:
+            total = 0
+
+            total += self.get_professional_skills_scores()
+
+            if total > 0:
+                total *= 0.8
+
+            key_performance_cls = django_apps.get_model('bhp_personnel.keyPerformancearea')
+
+            key_performance_objs = key_performance_cls.objects.filter(
+                    contract=self.contract)
+
+            total_performance_score = 0
+            for obj in key_performance_objs:
+                if obj.kpa_score:
+                    total_performance_score += float(obj.kpa_score)
+
+            if total_performance_score > 0:
+                total += ((total_performance_score / key_performance_objs.count()) * 0.2)
+            return total
