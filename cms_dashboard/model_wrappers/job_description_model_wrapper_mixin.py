@@ -1,13 +1,11 @@
 from django.apps import apps as django_apps
 
-from contract.models import Contract
 from .job_description_model_wrapper import JobDescriptionModelWrapper
 
 
 class JobDescriptionModelWrapperMixin:
 
     job_description_model_wrapper_cls = JobDescriptionModelWrapper
-
 
     @property
     def job_description_model_obj(self):
@@ -29,7 +27,7 @@ class JobDescriptionModelWrapperMixin:
 
     @property
     def job_description_cls(self):
-        return django_apps.get_model('contract.jobdescription')
+        return django_apps.get_model('bhp_personnel.jobdescription')
 
     @property
     def create_job_description_options(self):

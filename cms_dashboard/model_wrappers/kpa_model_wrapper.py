@@ -5,7 +5,7 @@ from edc_model_wrapper import ModelWrapper
 
 class KpaModelWrapper(ModelWrapper):
 
-    model = 'contract.keyperformancearea'
+    model = 'bhp_personnel.keyperformancearea'
     querystring_attrs = ['contract', 'emp_identifier', ]
     next_url_attrs = ['contract', ]
     next_url_name = settings.DASHBOARD_URL_NAMES.get('appraisal_listboard_url')
@@ -16,5 +16,4 @@ class KpaModelWrapper(ModelWrapper):
 
     @property
     def kpa_cls(self):
-        return django_apps.get_model(
-            'contract.keyperformancearea')
+        return django_apps.get_model('bhp_personnel.keyperformancearea')

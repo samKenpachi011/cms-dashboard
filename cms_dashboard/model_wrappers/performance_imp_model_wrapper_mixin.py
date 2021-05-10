@@ -19,7 +19,7 @@ class PerformanceImpModelWrapperMixin:
 
     @property
     def performance_imp_cls(self):
-        return django_apps.get_model('contract.performanceimpplan')
+        return django_apps.get_model('bhp_personnel.performanceimpplan')
 
     @property
     def performance_imp(self):
