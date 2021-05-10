@@ -1,5 +1,5 @@
 import re
-# from django.apps import apps as django_apps
+from django.apps import apps as django_apps
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.utils.decorators import method_decorator
@@ -40,9 +40,20 @@ class EmployeeListBoardView(
 
     def get_queryset_filter_options(self, request, *args, **kwargs):
         options = super().get_queryset_filter_options(request, *args, **kwargs)
+        usr_groups = [g.name for g in self.request.user.groups.all()]
+
         if kwargs.get('identifier'):
             options.update(
                 {'identifier': kwargs.get('identifier')})
+        if 'Supervisor' in usr_groups or request.GET.get('p_role') == 'Supervisor':
+            supervisor_cls = django_apps.get_model('bhp_personnel.supervisor')
+            try:
+                supervisor_obj = supervisor_cls.objects.get(
+                    email=self.request.user.email)
+            except supervisor_cls.DoesNotExist:
+                options.update({'user_created': None})
+            else:
+                options.update({'supervisor': supervisor_obj})
         return options
 
     def extra_search_options(self, search_term):

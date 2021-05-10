@@ -162,11 +162,11 @@
     				<span class="caret"></span>
     			</button>
     		<ul class="dropdown-menu dropdown-menu-right">
-      			<li><a href="">Employees <span class="badge pull-right">{{employee_supervisees}}</span></a></li>
+      			<li><a href="{% url employee_listboard_url %}?p_role=Supervisor">Employees <span class="badge pull-right">{{employee_supervisees}}</span></a></li>
       			<li class="divider"></li>
       			<li><a href="{% url consultant_listboard_url %}?p_role=Supervisor">Consultants <span class="badge pull-right">{{consultant_supervisees}}</span></a></li>
       			<li class="divider"></li>
-      			<li><a href="#">PIs <span class="badge pull-right">{{pi_supervisees}}</span></a></li>
+      			<li><a href="{% url pi_listboard_url %}?p_role=Supervisor">PIs <span class="badge pull-right">{{pi_supervisees}}</span></a></li>
     		</ul>
   			</div>
    		</div>

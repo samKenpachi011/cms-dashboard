@@ -4,10 +4,12 @@
 {% load cms_dashboard_extras %}
 
 {% block listboard_panel %}
-    <a id="employee_add" title="add employee" class="btn btn-sm btn-default" role="button"
-        href="{{ employee_add_url }}?next={{ employee_listboard_url }}">
-            <i class="fa fa-plus fa-sm"></i> Add Employee
-    </a>
+	{% if request.user|has_group:"HR" %}
+	    <a id="employee_add" title="add employee" class="btn btn-sm btn-default" role="button"
+	        href="{{ employee_add_url }}?next={{ employee_listboard_url }}">
+	            <i class="fa fa-plus fa-sm"></i> Add Employee
+	    </a>
+    {% endif %}
 {% endblock listboard_panel %}
 
 {% block listboard_table_header %}
