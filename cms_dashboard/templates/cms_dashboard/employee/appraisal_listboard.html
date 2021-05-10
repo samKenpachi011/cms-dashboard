@@ -130,33 +130,37 @@ div.scrollmenu a {
   display: inline-block;
 }
 </style>
-
-<!-- start listboard main block-->
 <div class="row">
 	<div id="toolbar">
-		<h3 style="font-weight:300"><img src="" width="40"> Employee Appraisals</h3>
-		<a id="appraisal_add" title="add appraisal" class="btn btn-sm btn-default" role="button"
-			href="{{ appraisal_add_url }}">
-				<i class="fa fa-plus fa-sm"></i> Add Appraisal
-
-    	</a>&nbsp&nbsp
-
-            {% add_performance_imp_button performance_imp_obj %}
-
+		<h3 style="font-weight:200"><img src="" width="20"> Employee Appraisals</h3>
 	</div>
 </div>
+ <!-- start listboard main block-->
+ <div class="panel-group">
+  <div class="panel panel-{{ listboard_panel_style }}">
+  <div class="panel-heading">
+
+    <!-- begin search form -->
+   <!--  <span class="pull-right">
+      {% block listboard_search_form %}
+        {% include 'timesheet_dashboard/search_form.html' %}
+      {% endblock listboard_search_form %}
+    </span>
+    <!-- end search form -->
+
+    {% block listboard_panel %}
+    	<!-- start listboard main block-->
+		<a id="btn-dashboard" class="btn btn-sm btn-default" role="button"
+     		title="Add Appraisal" href="{{ appraisal_add_url }}">
+     		<i class="fa fa-plus fa-sm"></i> Add Appraisal
+     	</a>&nbsp&nbsp
+     	{% add_performance_imp_button performance_imp_obj %}
+    {% endblock listboard_panel %}
+
+   </div> <!--end panel heading -->
 <!-- begin table -->
-<div class="table table-responsive">
-<table 	id="sort" class="table table-bordered table-hover small"
-		data-toggle="table"
-		data-toolbar="#toolbar"
-		data-filter-control="true"
-		data-show-columns="true"
-  		data-show-columns-toggle-all="true"
-		data-show-toggle="true"
-		data-show-fullscreen="true"
-		data-show-export="true"
-		data-pagination="true" >
+<div class="table table-responsive" style="overflow:inherit">
+<table class="table table-condensed table-hover small">
 <thead>
 
 {% block listboard_table_header %}
@@ -183,7 +187,7 @@ div.scrollmenu a {
       <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Section 1: KPA's <span class="caret"></span>
       </button>
-      <div style="position:relative;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
 	        {% for kpa in result.kpa_list %}
               <li style="color:white;"><a class="btn btn-info btn-sm " role="button"
 			href="{{ kpa.get_absolute_url }}">
@@ -196,19 +200,36 @@ div.scrollmenu a {
         <button class="btn btn-warning btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Section 2: Professional Skills <span class="caret"></span>
         </button>
-      <div style="position:relative;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
 
-
-                {% strategic_orientation_button result %}</br>
-                {% results_focus_button result %}</br>
-                {% leadership_and_motivation_button result %}</br>
-                {% innovation_and_creativity_button result %}</br>
-                {% planning_skills_button result %}</br>
-                {% interpersonal_skills_button result %}</br>
-                {% communication_skills_button result %}</br>
-                {% knowledge_and_productivity_button result %}</br>
-                {% quality_of_work_button result %}
-      </div>
+		<li>
+			{% strategic_orientation_button result %}
+		</li>
+		<li>
+			{% results_focus_button result %}
+		</li>
+		<li>
+			{% leadership_and_motivation_button result %}
+		</li>
+		<li>
+			{% innovation_and_creativity_button result %}
+		</li>
+		<li>
+			{% planning_skills_button result %}
+		</li>
+		<li>
+			{% interpersonal_skills_button result %}
+		</li>
+		<li>
+			{% communication_skills_button result %}
+		</li>
+		<li>
+			{% knowledge_and_productivity_button result %}
+		</li>
+		<li>
+			{% quality_of_work_button result %}
+		</li>        
+      </ul>
   </div>
   </div>
 </div>
