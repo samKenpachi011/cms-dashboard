@@ -67,7 +67,8 @@ def strategic_orientation_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_strategic_orientation_href=wrapped_model.href,
-        emp_identifier=model_wrapper.object.emp_identifier)
+        emp_identifier=model_wrapper.object.emp_identifier,
+        strategic_orientation_obj=model_wrapper.strategic_model_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/results_focus_button.html')
@@ -78,7 +79,8 @@ def results_focus_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_results_focus_href=wrapped_model.href,
-        emp_identifier=model_wrapper.object.emp_identifier)
+        emp_identifier=model_wrapper.object.emp_identifier,
+        results_focus_obj=model_wrapper.results_focus_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/leadership_and_motivation_button.html')
@@ -89,7 +91,8 @@ def leadership_and_motivation_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_leadership_and_motivation_href=wrapped_model.href,
-        emp_identifier=model_wrapper.object.emp_identifier)
+        emp_identifier=model_wrapper.object.emp_identifier,
+        leadership_and_motivation_obj=model_wrapper.leadership_and_motivation_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/innovation_and_creativity_button.html')
@@ -100,7 +103,8 @@ def innovation_and_creativity_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_innovation_and_creativity_href=wrapped_model.href,
-        emp_identifier=wrapped_model.object.emp_identifier)
+        emp_identifier=wrapped_model.object.emp_identifier,
+        innovation_obj=model_wrapper.innovation_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/planning_skills_button.html')
@@ -111,7 +115,8 @@ def planning_skills_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_planning_skills_href=wrapped_model.href,
-        emp_identifier=wrapped_model.object.emp_identifier)
+        emp_identifier=wrapped_model.object.emp_identifier,
+        planning_skills_obj=model_wrapper.planning_skills_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/interpersonal_skills_button.html')
@@ -122,7 +127,8 @@ def interpersonal_skills_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_interpersonal_skills_href=wrapped_model.href,
-        emp_identifier=wrapped_model.object.emp_identifier)
+        emp_identifier=wrapped_model.object.emp_identifier,
+        interpersonal_obj=model_wrapper.interpersonal_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/communication_skills_button.html')
@@ -133,7 +139,8 @@ def communication_skills_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_communication_skills_href=wrapped_model.href,
-        emp_identifier=wrapped_model.object.emp_identifier)
+        emp_identifier=wrapped_model.object.emp_identifier,
+        communication_obj=model_wrapper.communication_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/knowledge_and_productivity_button.html')
@@ -144,7 +151,8 @@ def knowledge_and_productivity_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_knowledge_and_productivity_href=wrapped_model.href,
-        emp_identifier=wrapped_model.object.emp_identifier)
+        emp_identifier=wrapped_model.object.emp_identifier,
+        knowledge_obj=model_wrapper.knowledge_obj)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/quality_of_work_button.html')
@@ -155,7 +163,8 @@ def quality_of_work_button(model_wrapper):
                                                          model_wrapper_cls)
     return dict(
         add_quality_of_work_href=wrapped_model.href,
-        emp_identifier=wrapped_model.object.emp_identifier)
+        emp_identifier=wrapped_model.object.emp_identifier,
+        quality_model_obj=model_wrapper.quality_model_obj)
 
 
 @register.filter(name='has_group')
