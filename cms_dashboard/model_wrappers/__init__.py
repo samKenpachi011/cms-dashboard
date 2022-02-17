@@ -7,3 +7,5 @@ from .employee_model_wrapper import EmployeeModelWrapper
 from .performance_imp_model_wrapper import PerformanceImpModelWrapper
 from .pi_model_wrapper import PiModelWrapper
 from .job_description_model_wrapper import JobDescriptionModelWrapper
+from .contracting_model_wrapper import ContractingModelWrapper
+from .contracting_model_wrapper_mixin import ContractingModelWrapperMixin

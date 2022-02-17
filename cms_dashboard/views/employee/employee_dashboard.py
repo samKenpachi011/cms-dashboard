@@ -8,17 +8,22 @@ from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
 
 from bhp_personnel.models import Contract, Employee
-from ...model_wrappers import ContractModelWrapper
+from ...model_wrappers import ContractModelWrapper, ContractingModelWrapper
 
 
 class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
 
     template_name = 'cms_dashboard/employee/employee_dashboard.html'
     navbar_name = 'cms_main_dashboard'
+    contracting_model = 'bhp_personnel.contracting'
+    contract_model = 'bhp_personnel.contract'
 
     @property
-    def job_description_model_cls(self):
-        return django_apps.get_model('bhp_personnel.jobdescription')
+    def contracting_model_cls(self):
+        return django_apps.get_model(self.contracting_model)
+    @property
+    def contract_model_cls(self):
+        return django_apps.get_model(self.contract_model)
 
     def contracts(self, identifier=None):
         """Returns a Queryset of all contracts for this subject.
@@ -29,16 +34,26 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
 
         return wrapped_objs
 
+    def contracting(self,identifier=None):
+        try:
+            contracting = self.contracting_model_cls.objects.get(identifier=identifier)
+        except self.contracting_model_cls.DoesNotExist:
+            contracting = self.contracting_model_cls(identifier=identifier, job_description=None) 
+            return ContractingModelWrapper(contracting)
+        else:
+            return ContractingModelWrapper(contracting)
+
+
     def contract(self, identifier=None):
-        """Reeturn a new contract obj.
+        """Return a new contract obj.
         """
-        job_description = None
-        job_descriptions = self.job_description_model_cls.objects.filter(
-            identifier=identifier).order_by('-created')
-        if job_descriptions:
-            job_description = job_descriptions.first()
-        return ContractModelWrapper(
-            Contract(job_description=job_description, identifier=identifier))
+        try:
+            contract = self.contract_model_cls.objects.get(identifier=identifier)
+        except self.contract_model_cls.DoesNotExist:
+            contract = self.contract_model_cls(identifier=identifier)
+            return ContractModelWrapper(contract)
+        else:
+            return ContractModelWrapper(contract)
 
     def employee(self, identifier=None):
         """Return an employee.
@@ -63,7 +78,8 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
             identifier=identifier,
             employee=self.employee(identifier=identifier),
             contracts=self.contracts(identifier=identifier),
-            contract=self.contract(identifier=identifier),
+            contract=self.contract(identifier=identifier), 
+            contracting=self.contracting(identifier=identifier),
             active_contract=self.any_active_contract(identifier),
             employee_contracts=Contract.objects.filter(identifier=identifier).count())
         return context

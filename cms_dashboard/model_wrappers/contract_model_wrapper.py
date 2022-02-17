@@ -5,10 +5,13 @@ from .employee_model_wrapper_mixin import EmployeeModelWrapperMixin
 from .consultant_model_wrapper_mixin import ConsultantModelWrapperMixin
 from .pi_model_wrapper_mixin import PiModelWrapperMixin
 from .job_description_model_wrapper_mixin import JobDescriptionModelWrapperMixin
+from .contracting_model_wrapper_mixin import ContractingModelWrapperMixin
+
 
 
 class ContractModelWrapper(
         EmployeeModelWrapperMixin, ConsultantModelWrapperMixin,
+        ContractingModelWrapperMixin,
         JobDescriptionModelWrapperMixin,
         PiModelWrapperMixin, ModelWrapper):
 
