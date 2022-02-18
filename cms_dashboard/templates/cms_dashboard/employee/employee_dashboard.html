@@ -71,7 +71,7 @@
 			     <a id="btn-contract" class="btn btn-primary btn-sm" role="button"
 			     title="add_contract" href="{{contract.href }}">
 			     <i class="fa fa-pencil-alt"></i></a>
-				{% contracting_button contracting %}
+				{% contracting_button contract %}
 
 				{% appraisal_listboard_button contract %}
 				</div>
@@ -110,12 +110,21 @@
 	      <div class="panel-heading">Demographics</div>
 	      <div class="panel-body">
 	      	<b>Name:</b> {{employee.first_name}} {{employee.middle_name}} {{employee.last_name}}</br>
+	      	<b>Title:</b> {{employee.salutation}}</br>
 	      	<b>Job Title:</b> {{employee.job_title}}</br>
+	      	<b>DOB:</b> {{employee.dob}}</br>
+	      	<b>Gender:</b> {{employee.gender}}</br>
+			<hr>
+	      	<b>Highest qualification level:</b> {{employee.highest_qualification}}</br>
+			  
+
+
+			<hr>
 	      	<b>Email:</b> {{employee.email}}</br>
 	      	<b>Cell:</b> {{employee.cell}}</br>
 	      	<b>Identifier:</b> {{employee.identifier}}</br>
 	      	<b>Employee code:</b> {{employee.employee_code}}</br>
-			<b>Professional Skills:</b> {{contracting.skills}} </br>
+			<b>Professional Skills:</b> {{contract.contracting.skills}} </br>
 	      	<hr >
 	      	<b>Dept: </b> {{employee.department.dept_name}}</br>
 	      	<b>HOD: </b> {{employee.department.hod}}</br>
