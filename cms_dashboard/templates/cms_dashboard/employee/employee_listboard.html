@@ -19,10 +19,17 @@
     <th>Employee Identifier</th>
     <th>Employee Code</th>
     <th>Employee Name</th>
+    <th>Job Title</th>
+    <th>Gender</th>
+
+
+    {% comment %} <th>Employee Identifier</th>
+    <th>Employee Code</th>
+    <th>Employee Name</th>
     <th>Email</th>
     <th>Job Title</th>
-    <th>Modified</th>
-    <th>Host</th>
+    <th>Gender</th>
+    <th>Host</th> {% endcomment %}
     <!-- end results header -->
 {% endblock listboard_table_header %}
 
@@ -45,9 +52,17 @@
     <td>{{ result.identifier }} </td>
     <td nowrap>{{ result.employee_code }}</td>
     <td nowrap>{{ result.first_name }} {{ result.middle_name }} {{ result.last_name }}</td>
+    <td nowrap>{{ result.job_title }}</td>
+    <td nowrap>{{ result.gender}}</td>  
+
+
+
+    {% comment %} <td>{{ result.identifier }} </td>
+    <td nowrap>{{ result.employee_code }}</td>
+    <td nowrap>{{ result.first_name }} {{ result.middle_name }} {{ result.last_name }}</td>
     <td nowrap>{{ result.email }}</td>
     <td nowrap>{{ result.job_title }}</td>
     <td nowrap>{{ result.object.modified|date:"SHORT_DATETIME_FORMAT" }}</td>  
-    <td nowrap>{{ result.hostname_created }}</td>
+    <td nowrap>{{ result.hostname_created }}</td> {% endcomment %}
 
 {% endblock listboard_table_columns %}
