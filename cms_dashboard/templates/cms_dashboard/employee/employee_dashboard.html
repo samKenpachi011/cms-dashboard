@@ -110,12 +110,18 @@
 	      <div class="panel-heading">Demographics</div>
 	      <div class="panel-body">
 	      	<b>Name:</b> {{employee.first_name}} {{employee.middle_name}} {{employee.last_name}}</br>
+	      	<b>Title:</b> {{employee.title_salutation}}</br>
 	      	<b>Job Title:</b> {{employee.job_title}}</br>
+	      	<b>DOB:</b> {{employee.date_of_birth}}</br>
+	      	<b>Gender:</b> {{employee.gender}}</br>
+			<hr>
+	      	<b>Highest qualification level:</b> {{employee.highest_qualification}}</br>
+			<hr>
 	      	<b>Email:</b> {{employee.email}}</br>
 	      	<b>Cell:</b> {{employee.cell}}</br>
 	      	<b>Identifier:</b> {{employee.identifier}}</br>
 	      	<b>Employee code:</b> {{employee.employee_code}}</br>
-			<b>Professional Skills:</b> {{contracting.skills}} </br>
+			<b>Professional Skills:</b> {{contract.contracting_model_obj.skills}} </br>
 	      	<hr >
 	      	<b>Dept: </b> {{employee.department.dept_name}}</br>
 	      	<b>HOD: </b> {{employee.department.hod}}</br>
