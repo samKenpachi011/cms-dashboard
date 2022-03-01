@@ -1,0 +1,38 @@
+{% extends 'cms_dashboard/base.html' %}
+{% load cms_dashboard_extras %}
+
+{% block extra-scripts %}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+
+{% endblock extra-scripts %}
+
+{% block main %}
+
+<h4>Reports</h4>
+
+
+<div class="container">
+    
+    <section id="gender_graph">
+        {% include 'cms_dashboard/employee/reports/gender_graph.html' %}
+    </section>
+
+    <section id="employee_per_dept">
+        {% include 'cms_dashboard/employee/reports/employees_per_dept.html' %}
+    </section>
+
+    <section id="age_graph">
+        {% include 'cms_dashboard/employee/reports/age_bar_chart.html' %}
+    </section>
+</div>
+
+{% endblock main%}
