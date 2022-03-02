@@ -47,7 +47,7 @@
       }
 </style>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <figure class="highcharts-figure">
             <div id="gender_category"></div>
             <p class="highcharts-description">
@@ -95,7 +95,7 @@
                     },
                     series: [{
                         name: 'Gender',
-                        data: [{% for v in gender_stats %} {{v}}, {% endfor %}]
+                        data: [{% for value in gender_stats %} {{value}}, {% endfor %}]
                     },]
                 });
         

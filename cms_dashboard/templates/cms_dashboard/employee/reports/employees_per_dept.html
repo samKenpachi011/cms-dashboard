@@ -81,7 +81,6 @@
 
         </figure>
         <script>
-          var colors = Highcharts.getOptions().colors;
 
             Highcharts.chart('individual_dept', {
                 chart: {
@@ -94,6 +93,13 @@
                     categories: [{% for data in dept_employee_data %} '{{data.0}}',{% endfor %}],
                     title: {
                         text: null
+                    },
+                    labels: {
+                      rotation: -45,
+                      style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                      }
                     }
                 },
                 yAxis: {

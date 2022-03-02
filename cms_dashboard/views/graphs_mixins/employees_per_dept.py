@@ -24,7 +24,6 @@ class EmployeePerDeptGraphMixin(EdcBaseViewMixin):
         count = dept_obj.first().employee_set.all().count()
         return count
     
-    # female count per dept
     @property
     def dept_emp_gender_count(self):
         dept_gender_count = []
@@ -51,11 +50,7 @@ class EmployeePerDeptGraphMixin(EdcBaseViewMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)   
         context.update(
-
             dept_employee_data = self.dept_employee_count,
-            dept_emp_gender_count = self.dept_emp_gender_count
-            
-            
-            
+            dept_emp_gender_count = self.dept_emp_gender_count 
         )
         return context

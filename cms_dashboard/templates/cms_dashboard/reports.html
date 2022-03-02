@@ -4,10 +4,12 @@
 {% block extra-scripts %}
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -33,6 +35,11 @@
     <section id="age_graph">
         {% include 'cms_dashboard/employee/reports/age_bar_chart.html' %}
     </section>
+
+    <section id="nationality_per_dept">
+        {% include 'cms_dashboard/employee/reports/nationality_per_dept.html' %}
+    </section>
+    
 </div>
 
 {% endblock main%}
