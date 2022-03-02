@@ -46,8 +46,8 @@
 		    	<td></td>
 		    	<td style="white-space: nowrap;">
 				    <div class="btn-group">
-						{% job_descrition_button contract %}
-						{% if contract.job_description_model_obj %}
+						{% contracting_button contract %} 
+						{% if contract.contracting_model_obj %}
 							<a 	id="btn-contract" class="btn btn-default btn-sm" role="button"
 					     		title="add_contract" href="{{contract.href }}">
 					     		<i class="far fa-user-circle fa-sm"></i> Add Contract
@@ -62,6 +62,7 @@
 			        <td>--</td>
 			    </td>
 		    {% endif %}
+			
 		    {%for contract in contracts %}
 		      <tr>
 		      	<td>{{ forloop.counter }}</td>
@@ -70,7 +71,7 @@
 			     <a id="btn-contract" class="btn btn-primary btn-sm" role="button"
 			     title="add_contract" href="{{contract.href }}">
 			     <i class="fa fa-pencil-alt"></i></a>
-				{% job_descrition_button contract %}
+				{% contracting_button contract %}
 
 				{% appraisal_listboard_button contract %}
 				</div>
@@ -109,11 +110,17 @@
 	      <div class="panel-heading">Demographics</div>
 	      <div class="panel-body">
 	      	<b>Name:</b> {{employee.first_name}} {{employee.middle_name}} {{employee.last_name}}</br>
+	      	<b>Title:</b> {{employee.title_salutation}}</br>
 	      	<b>Job Title:</b> {{employee.job_title}}</br>
+	      	<b>DOB:</b> {{employee.date_of_birth}}</br>
+	      	<b>Gender:</b> {{employee.gender}}</br>
+			<hr>
+	      	<b>Highest qualification level:</b> {{employee.highest_qualification}}</br>
+			<hr>
 	      	<b>Email:</b> {{employee.email}}</br>
 	      	<b>Cell:</b> {{employee.cell}}</br>
 	      	<b>Identifier:</b> {{employee.identifier}}</br>
-	      	<b>Employee code:</b> {{employee.employee_code}}
+	      	<b>Employee code:</b> {{employee.employee_code}}</br>
 	      	<hr >
 	      	<b>Dept: </b> {{employee.department.dept_name}}</br>
 	      	<b>HOD: </b> {{employee.department.hod}}</br>

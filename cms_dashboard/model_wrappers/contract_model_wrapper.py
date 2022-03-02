@@ -5,15 +5,17 @@ from .employee_model_wrapper_mixin import EmployeeModelWrapperMixin
 from .consultant_model_wrapper_mixin import ConsultantModelWrapperMixin
 from .pi_model_wrapper_mixin import PiModelWrapperMixin
 from .job_description_model_wrapper_mixin import JobDescriptionModelWrapperMixin
+from .contracting_model_wrapper_mixin import ContractingModelWrapperMixin
+
 
 
 class ContractModelWrapper(
         EmployeeModelWrapperMixin, ConsultantModelWrapperMixin,
-        JobDescriptionModelWrapperMixin,
+        ContractingModelWrapperMixin,
         PiModelWrapperMixin, ModelWrapper):
 
     model = 'bhp_personnel.contract'
-    querystring_attrs = ['identifier', 'id', 'job_description']
+    querystring_attrs = ['identifier', 'id']
     next_url_attrs = ['identifier', ]
     next_url_name = settings.DASHBOARD_URL_NAMES.get('employee_dashboard_url')
 
