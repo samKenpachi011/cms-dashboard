@@ -47,7 +47,7 @@
       }
 </style>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <figure class="highcharts-figure">
             <div id="gender_category"></div>
             <p class="highcharts-description">
@@ -61,7 +61,7 @@
                         type: 'column'
                     },
                     title: {
-                        text: 'Employeee categorised by gender'
+                        text: 'Employees Categorised By Gender'
                     },
                     xAxis: {
                         categories: [{% for label in gender_labels %} '{{ label }}',{% endfor %}],
@@ -73,7 +73,7 @@
                         min: 0,
                         max: 100,
                         title: {
-                            text: 'Gender Percentage (%)',
+                            text: 'Gender Count',
                             align: 'high'
                         },
                         labels: {
@@ -103,8 +103,78 @@
         </script>
 
     </div>
+    <div class="col-md-6">
+        <figure class="highcharts-figure">
+            <div id="individual_dept"></div>
+            <p class="highcharts-description">
+                Bar chart shows the count for all employees across departments per gender
+                
+            </p>
+        </figure>
+        <script>
 
+            Highcharts.chart('individual_dept', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                  text: 'Employees Categorised By Gender Per Departments'
+              },
+                xAxis: {
+                    categories: [{% for data in dept_employee_data %} '{{data.0}}',{% endfor %}],
+                    title: {
+                        text: null
+                    },
+                    labels: {
+                      rotation: -45,
+                      style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                      }
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    max: 35,
+                    title: {
+                        text: 'Employees Count',
+                        align: 'high'
+                    },
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ' %'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [
+                {
+                    name: 'Males',
+                    data: [{% for data in dept_emp_gender_count %} {{data.1}}, {% endfor %}],
+                    
+                },{
+                    name: 'Females',
+                    data: [{% for data in dept_emp_gender_count %} {{data.2}}, {% endfor %}],
+                    
+
+                }]
+            });
+          
+        </script>
+    </div>
 </div>
+
+
 
 
 

@@ -10,36 +10,48 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
-
-
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
 
 {% endblock extra-scripts %}
 
 {% block main %}
 
-<h4>Reports</h4>
-
-
 <div class="container">
-    
-    <section id="gender_graph">
-        {% include 'cms_dashboard/employee/reports/gender_graph.html' %}
-    </section>
+    <div class="panel-group">
+    <div class="panel panel-info">
+        <div class="panel-heading">Gender</div>
+        <div class="panel-body">
+            <section id="gender_graphs">
+                {% include 'cms_dashboard/employee/reports/gender_graphs.html' %}
+            </section>
 
-    <section id="employee_per_dept">
-        {% include 'cms_dashboard/employee/reports/employees_per_dept.html' %}
-    </section>
+        </div>
+    </div>
+</div>
 
-    <section id="age_graph">
-        {% include 'cms_dashboard/employee/reports/age_bar_chart.html' %}
-    </section>
+    <div class="panel panel-success">
+        <div class="panel-heading">Nationality</div>
+        <div class="panel-body">
+            <section id="nationality_graphs">
+                {% include 'cms_dashboard/employee/reports/nationality_graphs.html' %}
+            </section>
 
-    <section id="nationality_per_dept">
-        {% include 'cms_dashboard/employee/reports/nationality_per_dept.html' %}
-    </section>
-    
+        </div>
+    </div>
+ 
+    <div class="panel panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Studies Info</div>
+            <div class="panel-body">
+            </div>
+
+            <section id="study_graphs">
+                {% include 'cms_dashboard/employee/reports/study_graphs.html' %}
+            </section>
+
+        </div>
+    </div>
+
 </div>
 
 {% endblock main%}

@@ -35,3 +35,23 @@ class ListBoardFilters(ListboardViewFilters):
         label='3-Months Due',
         position=12,
         lookup={'due_date__lt': get_utcnow().date()})
+
+
+class EmployeeListBoardFilters(ListboardViewFilters):
+    
+        all = ListboardFilter(
+        name='all',
+        label='All',
+        lookup={})
+        
+        gender_female = ListboardFilter(
+            name ='gender_female',
+            label = 'Female',
+            lookup = {'gender': 'F'}
+        )
+        
+        gender_male = ListboardFilter(
+            name ='gender_male',
+            label = 'Male',
+            lookup = {'gender': 'M'}
+        )

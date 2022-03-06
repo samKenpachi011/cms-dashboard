@@ -9,6 +9,7 @@ from edc_dashboard.views import ListboardView
 from edc_navbar import NavbarViewMixin
 
 from ...model_wrappers import EmployeeModelWrapper
+from ..filters import EmployeeListBoardFilters
 
 
 class EmployeeListBoardView(
@@ -28,6 +29,8 @@ class EmployeeListBoardView(
     paginate_by = 10
     search_form_url = 'employee_listboard_url'
     
+    listboard_view_filters = EmployeeListBoardFilters()
+
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
