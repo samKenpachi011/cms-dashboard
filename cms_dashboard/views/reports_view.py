@@ -1,8 +1,12 @@
 from django.views.generic import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
-from .graphs_mixins import GenderGraphMixin, EmployeePerDeptGraphMixin,NationalityMixin
-class ReportsView(NationalityMixin,
+from .graphs_mixins import (GenderGraphMixin,
+                            EmployeePerDeptGraphMixin,
+                            NationalityMixin,
+                            EmployeesPerStudyMixin,AgeDistributionPerStudyMixin)
+class ReportsView(AgeDistributionPerStudyMixin,EmployeesPerStudyMixin,
+                  NationalityMixin,
                   EmployeePerDeptGraphMixin,
                   GenderGraphMixin,
                   NavbarViewMixin,
