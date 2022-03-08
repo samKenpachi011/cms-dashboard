@@ -160,11 +160,11 @@
                 series: [
                 {
                     name: 'Males',
-                    data: [{% for data in dept_emp_gender_count %} {{data.1}}, {% endfor %}],
+                    data: [{% for data in dept_emp_gender_count %} {{data.2}}, {% endfor %}],
                     
                 },{
                     name: 'Females',
-                    data: [{% for data in dept_emp_gender_count %} {{data.2}}, {% endfor %}],
+                    data: [{% for data in dept_emp_gender_count %} {{data.1}}, {% endfor %}],
                     
 
                 }]

@@ -55,3 +55,12 @@ class EmployeeListBoardFilters(ListboardViewFilters):
             label = 'Male',
             lookup = {'gender': 'M'}
         )
+        
+        # ages -> '-17','18-24',"35-44","45-54","55-64"
+        
+        range_ages = ListboardFilter(
+            name ='Ages',
+            label = 'Age',
+            lookup = {'date_of_birth': '-17'},
+        )
+     
