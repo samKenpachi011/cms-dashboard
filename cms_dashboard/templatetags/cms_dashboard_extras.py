@@ -1,4 +1,3 @@
-from bdb import set_trace
 from django import template
 # from django.conf import settings
 from django.urls import reverse
@@ -45,6 +44,7 @@ def add_performance_imp_button(model_wrapper):
 
 @register.inclusion_tag('cms_dashboard/buttons/kpa_button.html')
 def kpa_button(model_wrapper):
+    import pdb;pdb.set_trace()
     return dict(
         add_kpa_href=model_wrapper.kpa.href,
         # add_strategic_orientation_href=model_wrapper.strategic_orientation.href,
@@ -168,6 +168,11 @@ def quality_of_work_button(model_wrapper):
         add_quality_of_work_href=wrapped_model.href,
         emp_identifier=wrapped_model.object.emp_identifier,
         quality_model_obj=model_wrapper.quality_model_obj)
+
+
+@register.filter(name='professional_skills_btn')
+def professional_skills_btn(skill_list_model):
+    return f'{skill_list_model.short_name}_button'
 
 
 @register.filter(name='has_group')

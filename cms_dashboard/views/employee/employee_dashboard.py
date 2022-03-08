@@ -7,7 +7,6 @@ from django.views.generic.base import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
 
-from bhp_personnel.models import Contract, Employee
 from ...model_wrappers import ContractModelWrapper, ContractingModelWrapper
 
 
@@ -21,28 +20,33 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
     @property
     def contracting_model_cls(self):
         return django_apps.get_model(self.contracting_model)
+
     @property
     def contract_model_cls(self):
         return django_apps.get_model(self.contract_model)
+
+    @property
+    def employee_model_cls(self):
+        return django_apps.get_model('bhp_personnel.employee')
 
     def contracts(self, identifier=None):
         """Returns a Queryset of all contracts for this subject.
         """
         wrapped_objs = []
-        for contract in Contract.objects.filter(identifier=identifier):
+        for contract in self.contract_model_cls.objects.filter(identifier=identifier):
             wrapped_objs.append(ContractModelWrapper(contract))
 
         return wrapped_objs
 
-    def contracting(self,identifier=None):
+    def contracting(self, identifier=None):
         try:
             contracting = self.contracting_model_cls.objects.get(identifier=identifier)
         except self.contracting_model_cls.DoesNotExist:
-            contracting = self.contracting_model_cls(identifier=identifier, job_description=None) 
+            contracting = self.contracting_model_cls(
+                identifier=identifier, job_description=None)
             return ContractingModelWrapper(contracting)
         else:
             return ContractingModelWrapper(contracting)
-
 
     def contract(self, identifier=None):
         """Return a new contract obj.
@@ -59,8 +63,8 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
         """Return an employee.
         """
         try:
-            employee = Employee.objects.get(identifier=identifier)
-        except Employee.DoesNotExist:
+            employee = self.employee_model_cls.objects.get(identifier=identifier)
+        except self.employee_model_cls.DoesNotExist:
             raise ValidationError(
                 f"Employee with identifier {identifier} does not exist")
         else:
@@ -68,7 +72,8 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
 
     def any_active_contract(self, identifier):
         """Return true if there is any active contract for employee"""
-        contracts = Contract.objects.filter(identifier=identifier, status='Active')
+        contracts = self.contract_model_cls.objects.filter(
+            identifier=identifier, status='Active')
         return True if contracts else False
 
     def get_context_data(self, **kwargs):
@@ -78,10 +83,11 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
             identifier=identifier,
             employee=self.employee(identifier=identifier),
             contracts=self.contracts(identifier=identifier),
-            contract=self.contract(identifier=identifier), 
+            contract=self.contract(identifier=identifier),
             contracting=self.contracting(identifier=identifier),
             active_contract=self.any_active_contract(identifier),
-            employee_contracts=Contract.objects.filter(identifier=identifier).count())
+            employee_contracts=self.contract_model_cls.objects.filter(
+                identifier=identifier).count())
         return context
 
     @method_decorator(login_required)
