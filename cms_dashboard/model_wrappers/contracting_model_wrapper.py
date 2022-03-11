@@ -10,14 +10,26 @@ class ContractingModelWrapper(ModelWrapper):
     next_url_attrs = ['identifier', ]
     next_url_name = settings.DASHBOARD_URL_NAMES.get('employee_dashboard_url')
 
+    employee_model_cls = 'bhp_personnel.employee'
+
     @property
     def identifier(self):
-        return self.object.identifier 
+        return self.object.identifier
 
     @property
     def supervisor(self):
-        return self.object.supervisor
+        employee = self.employee_model_obj
+        return employee.supervisor
 
     @property
     def department(self):
         return self.object.department
+
+    @property
+    def employee_model_obj(self):
+        try:
+            obj = self.employee_model_cls.objects.get(identity=self.identifier)
+        except self.employee_model_cls.DoesNotExist:
+            raise
+        else:
+            return obj

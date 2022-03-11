@@ -28,9 +28,7 @@ class EmployeeListBoardView(
     ordering = '-modified'
     paginate_by = 10
     search_form_url = 'employee_listboard_url'
-    
     listboard_view_filters = EmployeeListBoardFilters()
-
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

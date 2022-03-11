@@ -38,26 +38,11 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
 
         return wrapped_objs
 
-    def contracting(self, identifier=None):
-        try:
-            contracting = self.contracting_model_cls.objects.get(identifier=identifier)
-        except self.contracting_model_cls.DoesNotExist:
-            contracting = self.contracting_model_cls(
-                identifier=identifier, job_description=None)
-            return ContractingModelWrapper(contracting)
-        else:
-            return ContractingModelWrapper(contracting)
-
     def contract(self, identifier=None):
         """Return a new contract obj.
         """
-        try:
-            contract = self.contract_model_cls.objects.get(identifier=identifier)
-        except self.contract_model_cls.DoesNotExist:
-            contract = self.contract_model_cls(identifier=identifier)
-            return ContractModelWrapper(contract)
-        else:
-            return ContractModelWrapper(contract)
+        contract = self.contract_model_cls(identifier=identifier)
+        return ContractModelWrapper(contract)
 
     def employee(self, identifier=None):
         """Return an employee.
@@ -84,7 +69,6 @@ class DashboardView(NavbarViewMixin, EdcBaseViewMixin, TemplateView):
             employee=self.employee(identifier=identifier),
             contracts=self.contracts(identifier=identifier),
             contract=self.contract(identifier=identifier),
-            contracting=self.contracting(identifier=identifier),
             active_contract=self.any_active_contract(identifier),
             employee_contracts=self.contract_model_cls.objects.filter(
                 identifier=identifier).count())

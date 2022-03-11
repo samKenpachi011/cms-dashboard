@@ -44,12 +44,10 @@ def add_performance_imp_button(model_wrapper):
 
 @register.inclusion_tag('cms_dashboard/buttons/kpa_button.html')
 def kpa_button(model_wrapper):
-    import pdb;pdb.set_trace()
     return dict(
-        add_kpa_href=model_wrapper.kpa.href,
-        # add_strategic_orientation_href=model_wrapper.strategic_orientation.href,
+        add_kpa_href=model_wrapper.href,
         emp_identifier=model_wrapper.object.emp_identifier,
-        kpa_object=model_wrapper.kpa_model_obj)
+        kpa_object=model_wrapper.object)
 
 
 @register.inclusion_tag('cms_dashboard/buttons/contracting_button.html')
