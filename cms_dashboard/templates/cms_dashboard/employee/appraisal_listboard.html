@@ -187,64 +187,71 @@ div.scrollmenu a {
 
 {% block listboard_table_body %}
 {% for result in results %}
-
 <tr>
-
 	<td>
 
   <div class="btn-group">
-    {% edit_appraisal_button result %}
-    <div class="btn-group">
-      <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Section 1: KPA's <span class="caret"></span>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-	        {% for kpa in result.kpa_list %}
-              <li style="color:white;"><a class="btn btn-info btn-sm " role="button"
-			href="{{ kpa.get_absolute_url }}">
-				 {{ kpa.kpa_nd_objective }}
-              </a></li>
-	        {% endfor %}
-      </div>
-    </div>
-      <div class="btn-group">
-        <button class="btn btn-warning btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Section 2: Professional Skills <span class="caret"></span>
-        </button>
-      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-
-		<li>
-			{% strategic_orientation_button result %}
-		</li>
-		<li>
-			{% results_focus_button result %}
-		</li>
-		<li>
-			{% leadership_and_motivation_button result %}
-		</li>
-		<li>
-			{% innovation_and_creativity_button result %}
-		</li>
-		<li>
-			{% planning_skills_button result %}
-		</li>
-		<li>
-			{% interpersonal_skills_button result %}
-		</li>
-		<li>
-			{% communication_skills_button result %}
-		</li>
-		<li>
-			{% knowledge_and_productivity_button result %}
-		</li>
-		<li>
-			{% quality_of_work_button result %}
-		</li>        
-      </ul>
-  </div>
-  </div>
-</div>
-
+	  {% edit_appraisal_button result %}
+	    <div class="btn-group">
+	      <button class="btn btn-success btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Section 1: KPA's <span class="caret"></span>
+	      </button>
+	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+		        {% for kpa in result.kpa_list %}
+	              	<li style="color:white;">
+	              		{% kpa_button kpa %}
+					</li>
+		        {% endfor %}
+	      </div>
+	    </div>
+	      <div class="btn-group">
+	        <button class="btn btn-warning btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	            Section 2: Professional Skills <span class="caret"></span>
+	        </button>
+	      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+			{% for skill in result.object.contract.contracting.skills.all %}
+				{% if skill.short_name == 'strategic_orientation' %}
+					<li>
+						{% strategic_orientation_button result %}
+					</li>
+				{% elif skill.short_name == 'results_focus' %}
+					<li>
+						{% results_focus_button result %}
+					</li>
+				{% elif skill.short_name == 'leadership_and_motivation' %}
+					<li>
+						{% leadership_and_motivation_button result %}
+					</li>
+				{% elif skill.short_name == 'innovation_and_creativity' %}
+					<li>
+						{% innovation_and_creativity_button result %}
+					</li>
+				{% elif skill.short_name == 'planning_skills' %}
+					<li>
+						{% planning_skills_button result %}
+					</li>
+				{% elif skill.short_name == 'interpersonal_skills' %}
+					<li>
+						{% interpersonal_skills_button result %}
+					</li>
+				{% elif skill.short_name == 'communication_skills' %}
+					<li>
+						{% communication_skills_button result %}
+					</li>
+				{% elif skill.short_name == 'knowledge_and_productivity' %}
+					<li>
+						{% knowledge_and_productivity_button result %}
+					</li>
+				{% elif skill.short_name == 'quality_of_work' %}
+					<li>
+						{% quality_of_work_button result %}
+					</li>
+				{% endif %}
+			{% endfor %}
+	      </ul>
+	  </div>
+	  </div>
+	</div>
 	</td>
 
 	{% block listboard_table_button_column %}
@@ -255,7 +262,7 @@ div.scrollmenu a {
 	<td nowrap>{{ result.object.contract }}</td>
 	<td nowrap>{{ result.object.review }}</td>
 	<td nowrap>
-		<span class="badge badge-pill badge-info">{{ result.overall_score }}</span>
+		<span class="badge badge-pill badge-info">{{ result.overall_score|floatformat }}</span>
 	</td>
 	{% endblock listboard_table_columns %}
 </tr>
